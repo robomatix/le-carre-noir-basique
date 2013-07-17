@@ -48,11 +48,11 @@ cn.addRowSquare = function() {
         var x = i * 40;
         // This determinate black,green or neutral square
         var bgn_random = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
-        if (bgn_random > 0 && bgn_random < 6) {// if random number > 5 -> black square otherwise green or neutral (white)F
+        if (bgn_random > 0 && bgn_random < 7) {// if random number > 5 -> black square otherwise green or neutral (white)F
             bgn = "green";
-        } else if (bgn_random > 5 && bgn_random < 9) {
+        } else if (bgn_random > 6 && bgn_random < 10) {
             bgn = "white";
-        } else if (bgn_random > 8) {
+        } else if (bgn_random > 9) {
             bgn = "black";
         }
         cn.addSquare("container", "square-" + turn + "-" + i, {dim: 40, bgColor: bgn, y: 0, x: x});
@@ -103,19 +103,19 @@ cn.testCollisionPlayer = function(divId, y) {
 
 };
 /**
- * This function makes the action after  a cllision with a square according to the type of the square
+ * This function makes the action after  a collision with a square according to the type of the square
  **/
 cn.squareCollisionPlayer = function(typeSquare) {
     dim = $("#jauge").data("cn").dim;
     switch (typeSquare) {
         case 'green':
             if (dim < 40) {
-                dim += 2;
+                dim += 4;
             }
             break;
         case 'black':
             if (dim >= 0) {
-                dim -= 2;
+                dim -= 4;
             }
             break;
     }

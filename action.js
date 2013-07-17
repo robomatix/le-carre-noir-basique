@@ -9,7 +9,7 @@ $(function() {
         cn.addSquare("container", "player", {dim: 40, bgColor: "black", y: 360, x: 120});
         $("#player").css({'z-index': 100});
         cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
-        $("#startButton").remove();
+        $("#startButtonContainer").remove();
     };
 
     //var gameState = "START";
