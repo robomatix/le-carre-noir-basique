@@ -123,7 +123,8 @@ cn.squareCollisionPlayer = function(typeSquare) {
     cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 20 - (dim / 2), x: 20 - (dim / 2)});
     if (dim === 40) {
         cn.addSquare("player", "jauge", {dim: dim, bgColor: "red", y: 20 - (dim / 2), x: 20 - (dim / 2)});
-        alert('Crack ! Boum ! Hue ! Vous avez perdu ! Votre score est de ' + turn + ' Veuillez Valider puis Presser F5 pour recommencer !');
+        $("#container").append('<img src="game-over-1-130717.gif" width="400" height="400" alt="game-over-1-130717" style="position:relative;z-index:12;"/>');
+        //alert('Crack ! Boum ! Hue ! Vous avez perdu ! Votre score est de ' + turn + ' Veuillez Valider puis Presser F5 pour recommencer !');
     }
 
 };
