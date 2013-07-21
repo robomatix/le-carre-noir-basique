@@ -122,13 +122,12 @@ cn.squareCollisionPlayer = function(typeSquare) {
     $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
     cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 20 - (dim / 2), x: 20 - (dim / 2)});
     if (dim === 40) {
-        cn.addSquare("player", "jauge", {dim: dim, bgColor: "red", y: 20 - (dim / 2), x: 20 - (dim / 2)});
+        $("#container").remove();
         $("#gameOver").show();
-        $("#mygame").after('<div width="400" height="40" style="position:relative;z-index:14;" id="score"/>Crack ! Boum ! Hue ! Perdu ! Votre score est de '+turn+'<br />Rafraichir la page pour recommencer !!! (F5)</div>');
-        //$("#score").after('<p id="startButtonContainer"><a href="#" id="startButton">start</a></p>');
+        $("#score").show().html('Crack ! Boum ! Hue ! Perdu ! Votre score est de '+turn);
         $("#buttonLeft").hide();
         $("#buttonRight").hide();
-    
+        $("#startButtonContainer").show();    
     }
 
 };

@@ -5,18 +5,19 @@
  * */
 $(function() {
     var initialize = function() {
+        turn = 1;
+        $("#gameOver").hide();
+        $("#score").hide();
         $("#mygame").append("<div id='container' style='display: block; width: 400px; height: 400px;'>");
         cn.addSquare("container", "player", {dim: 40, bgColor: "black", y: 360, x: 120});
         $("#player").css({'z-index': 100});
         cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
         $("#startButtonContainer").hide();
-        $("#gameOver").hide();
         $("#buttonLeft").show();
         $("#buttonRight").show();
     };
 
-    //var gameState = "START";
-    turn = 1;
+    //turn = 1;
 
     $(document).keydown(function(e) {
         var newPos = cn.x("player");
@@ -31,6 +32,13 @@ $(function() {
                 break;
         }
     });
+    // Hide and show stuffs
+    $("#gameOver").hide();
+    $("#score").hide();
+    $("#buttonLeft").hide();
+    $("#buttonRight").hide();
+
+
     // Start the game
     $("#startButton").click(function() {
         cn.startGame(initialize);
