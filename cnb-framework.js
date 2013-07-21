@@ -107,27 +107,29 @@ cn.testCollisionPlayer = function(divId, y) {
  **/
 cn.squareCollisionPlayer = function(typeSquare) {
     dim = $("#jauge").data("cn").dim;
-    switch (typeSquare) {
-        case 'green':
-            if (dim < 40) {
-                dim += 4;
-            }
-            break;
-        case 'black':
-            if (dim >= 0) {
-                dim -= 4;
-            }
-            break;
-    }
-    $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
-    cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 20 - (dim / 2), x: 20 - (dim / 2)});
-    if (dim === 40) {
+    if (dim === 40) {// Game ends...
+        gameOn = 0;
         $("#container").remove();
         $("#gameOver").show();
-        $("#score").show().html('Crack ! Boum ! Hue ! Perdu ! Votre score est de '+turn);
+        $("#score").show().html('Crack ! Boum ! Hue ! Perdu ! Votre score est de ' + turn);
         $("#buttonLeft").hide();
         $("#buttonRight").hide();
-        $("#startButtonContainer").show();    
+        $("#startButtonContainer").show();
+    } else { // Next step of the game
+        switch (typeSquare) {
+            case 'green':
+                if (dim < 40) {
+                    dim += 4;
+                }
+                break;
+            case 'black':
+                if (dim >= 0) {
+                    dim -= 4;
+                }
+                break;
+        }
+        $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
+        cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 20 - (dim / 2), x: 20 - (dim / 2)});
     }
 
 };
