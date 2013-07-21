@@ -143,7 +143,6 @@ cn.x = function(divId, position) {
         }
         $("#" + divId).css("left", position);
         $("#" + divId).data("cn").x = position;
-
     } else {
         return $("#" + divId).data("cn").x;
     }
