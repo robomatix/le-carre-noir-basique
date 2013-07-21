@@ -9,12 +9,14 @@ $(function() {
         cn.addSquare("container", "player", {dim: 40, bgColor: "black", y: 360, x: 120});
         $("#player").css({'z-index': 100});
         cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
-        $("#startButtonContainer").remove();
+        $("#startButtonContainer").hide();
+        $("#gameOver").hide();
+        $("#buttonLeft").show();
+        $("#buttonRight").show();
     };
 
     //var gameState = "START";
     turn = 1;
-    score = 0;
 
     $(document).keydown(function(e) {
         var newPos = cn.x("player");
@@ -29,12 +31,21 @@ $(function() {
                 break;
         }
     });
-
+    // Start the game
     $("#startButton").click(function() {
         cn.startGame(initialize);
     });
-
-
+    // Move the player squre with the button (It seems impossible to emulate keydown... Avoid duplicate code later !
+    $("#buttonLeft").click(function() {
+        var newPos = cn.x("player");
+        newPos -= 40;
+        cn.movePlayerSquare(newPos);
+    });
+    $("#buttonRight").click(function() {
+        var newPos = cn.x("player");
+        newPos += 40;
+        cn.movePlayerSquare(newPos);
+    });
 });
 
 
