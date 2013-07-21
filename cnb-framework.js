@@ -112,18 +112,21 @@ cn.squareCollisionPlayer = function(typeSquare) {
             if (dim < 40) {
                 dim += 4;
             }
+            score++;
             break;
         case 'black':
             if (dim >= 0) {
                 dim -= 4;
             }
+            score--;
             break;
     }
-    $("#jauge").remove();// Score is remove before being putting it back with his new datas...
+    $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
     cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 20 - (dim / 2), x: 20 - (dim / 2)});
     if (dim === 40) {
         cn.addSquare("player", "jauge", {dim: dim, bgColor: "red", y: 20 - (dim / 2), x: 20 - (dim / 2)});
-        $("#container").append('<img src="game-over-1-130717.gif" width="400" height="400" alt="game-over-1-130717" style="position:relative;z-index:12;"/>');
+        $("#container").append('<img src="game-over-1-130717.gif" width="400" height="400" alt="game-over-1-130717" style="position:relative;z-index:12;"/></div>');
+        $("#container").append('<div width="400" height="40" style="position:relative;z-index:14;"/>Crack ! Boum ! Hue ! Perdu ! Votre score est de '+score+'</div>');
         //alert('Crack ! Boum ! Hue ! Vous avez perdu ! Votre score est de ' + turn + ' Veuillez Valider puis Presser F5 pour recommencer !');
     }
 
