@@ -73,7 +73,7 @@ cn.moveRowSquare = function(turn) {
             newPosSquare += 40;
             cn.y(square, newPosSquare);
             cn.testCollisionPlayer(square, newPosSquare);// Test collision between a square and the square of the player
-            cn.removeSquare(square, newPosSquare);// remove Square dernière ligne en bas...          
+            cn.removeSquare(square, newPosSquare);// remove Squares  at the bottom line       
         }
     }
 
@@ -88,7 +88,7 @@ cn.removeSquare = function(divId, y) {
 
 };
 /**
- * This function removes the line of squares below the player square
+ * This function test The collision with the square of the player
  **/
 cn.testCollisionPlayer = function(divId, y) {
     if (y === 360) {
@@ -107,7 +107,7 @@ cn.testCollisionPlayer = function(divId, y) {
  **/
 cn.squareCollisionPlayer = function(typeSquare) {
     dim = $("#jauge").data("cn").dim;
-    if (dim === 40) {// Game ends...
+    if (dim === 36) {// Game ends when the dim of the jauge checked is 36px, just before reaching the fatal 40px
         gameOn = 0;
         $("#container").remove();
         $("#gameOver").show();
@@ -118,7 +118,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
     } else { // Next step of the game
         switch (typeSquare) {
             case 'green':
-                if (dim < 40) {
+                if (dim < 36) {
                     dim += 4;
                 }
                 break;
