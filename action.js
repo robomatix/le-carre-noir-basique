@@ -16,7 +16,7 @@ $(function() {
         gameOn = 1;
         $("#gameOver").hide();
         $("#score").hide();
-        $("#mygame").append("<div id='container' style='display: block; width: 400px; height: 400px;'>");
+        $("#containerCarreNoirGame").append("<div id='container' style='display: block; width: 400px; height: 400px;'>");
         cn.addSquare("container", "player", {dim: 40, bgColor: "black", y: 360, x: 120});
         $("#player").css({'z-index': 100});
         cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
