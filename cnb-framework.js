@@ -48,7 +48,7 @@ cn.addRowSquare = function() {
         var x = i * 40;
         // This determinate black,green or neutral square
         var bgn_random = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
-        if (bgn_random > 0 && bgn_random < 7) {// if random number > 5 -> black square otherwise green or neutral (white)F
+        if (bgn_random > 0 && bgn_random < 7) {// if random number > 7 -> black square otherwise green or neutral (white)F
             bgn = "green";
         } else if (bgn_random > 6 && bgn_random < 10) {
             bgn = "white";
@@ -69,6 +69,7 @@ cn.moveRowSquare = function(turn) {
     if (turn > 11) {
         i = turn - 10;
     }
+
     for (var i = i; i < turn; i++) {
         for (var ii = 0; ii < 10; ii++) {
             var square = "square-" + i + "-" + ii;
@@ -76,10 +77,10 @@ cn.moveRowSquare = function(turn) {
             newPosSquare += 40;
             cn.y(square, newPosSquare);
             cn.testCollisionPlayer(square, newPosSquare);// Test collision between a square and the square of the player
-            cn.removeSquare(square, newPosSquare);// remove Squares  at the bottom line       
-        }
-    }
-
+			cn.removeSquare(square, newPosSquare);// remove Squares  at the bottom line       
+		}
+	}
+	
 };
 /**
  * This function removes the line of squares below the player square
