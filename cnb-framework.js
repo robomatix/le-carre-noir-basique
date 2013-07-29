@@ -59,7 +59,10 @@ cn.addRowSquare = function() {
     }
 };
 /**
- * This function moves a row of squares towards the bottom
+ * This function :
+ * Moves a row of squares towards the bottom
+ * Test the collision of computer square against the player suare
+ * Remove the bottom line of computer squares
  **/
 cn.moveRowSquare = function(turn) {
     i = 1;
@@ -103,7 +106,7 @@ cn.testCollisionPlayer = function(divId, y) {
 
 };
 /**
- * This function makes the action after  a collision with a square according to the type of the square
+ * This function makes the action after a collision with a square according to the type of the square
  **/
 cn.squareCollisionPlayer = function(typeSquare) {
     dim = $("#jauge").data("cn").dim;
@@ -112,9 +115,6 @@ cn.squareCollisionPlayer = function(typeSquare) {
         $("#container").remove();
         $("#gameOver").show();
         $("#score").show().html('Crack ! Boum ! Hue ! Perdu ! Votre score est de ' + turn);
-        $("#buttonLeft").hide();
-        $("#buttonRight").hide();
-        $("#startButtonContainer").show();
     } else { // Next step of the game
         switch (typeSquare) {
             case 'green':
