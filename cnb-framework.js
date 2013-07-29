@@ -118,12 +118,12 @@ cn.squareCollisionPlayer = function(typeSquare) {
     } else { // Next step of the game
         switch (typeSquare) {
             case 'green':
-                if (dim < 36) {
+                if (dim < 36) {// Increase the size of the jauge
                     dim += 4;
                 }
                 break;
             case 'black':
-                if (dim >= 0) {
+                if (dim >= 0) {// Decrease the size of the jauge
                     dim -= 4;
                 }
                 break;
