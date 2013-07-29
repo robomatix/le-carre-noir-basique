@@ -1,14 +1,25 @@
 /* http://www.robomatix.net
- V 0.0.1
- Started monday 29 July 2013 by Robomatix Rebirth
+V 0.0.1
+Started monday 29 July 2013 by Robomatix Rebirth
 */
+
+/* CSS RESET */
+@charset "utf-8";
 
 /* CSS RESET */
 @import url(reset.css);
 
 /* STYLING */
 html{
-	font-family: Arial, Helvetica, sans-serif;
-	color: green;
-	background-color: black;
+font-family: Arial, Helvetica, sans-serif;
+color: black;
+background-color: green;
+}
+#containerCarreNoirGame{
+position: relative;
+width: 400px;
+height: 400px;
+margin: 50px auto 50px auto;
+border: 10px solid black;
+overflow: hidden;
 }
