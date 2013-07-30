@@ -24,6 +24,9 @@ html{
 	background-color: black;
 	overflow: hidden;
 }
+#score{
+	position: absolute;
+}
 #containerCarreNoirGame p{
 	position: relative;
 	margin: 20px 20px 0 20px;
@@ -40,4 +43,7 @@ html{
 	height: 400px;
 	background-color: green;
 	z-index:88;
+}
+#containerCarreNoirGame #container{
+	background-color: yellow;
 }

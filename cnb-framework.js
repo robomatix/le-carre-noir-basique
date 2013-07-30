@@ -111,24 +111,49 @@ cn.testCollisionPlayer = function(divId, y) {
  **/
 cn.squareCollisionPlayer = function(typeSquare) {
     dim = $("#jauge").data("cn").dim;
+    
+    /* Game ends or Continues ? */
     if (dim === 36) {// Game ends when the dim of the jauge checked is 36px, just before reaching the fatal 40px
         gameOn = 0;
         $("#container").remove();
         $("#gameOver").show();
-        $("#score").show().html('Crack ! Boum ! Hue ! Perdu ! Votre score est de ' + turn);
-    } else { // Next step of the game
+    } else { // Game continues... Next turn
         switch (typeSquare) {
             case 'green':
-                if (dim < 36) {// Increase the size of the jauge
-                    dim += 4;
+                if (dim < 36) {
+                    dim += 4;// Increase the size of the jauge
+                    gs++;
                 }
                 break;
             case 'black':
-                if (dim >= 0) {// Decrease the size of the jauge
-                    dim -= 4;
+                if (dim >= 0) {
+                    dim -= 4;// Decrease the size of the jauge
+                    bs++;
                 }
                 break;
+           case 'white':
+                    ns++;
+                break;
         }
+        // Calculing the score
+        score = (ns*fns)-(gs*fns)+(bs*fns)+turn-10;
+        
+        // Handling the best stats and score
+        if(ns > bestNs){
+			bestNs = ns;
+		}
+		if(gs > bestGs){
+			bestGs = gs;
+		}
+		if(bs > bestBs){
+			bestBs = bs;// This not really the best, this is the most in fact...
+		}
+		if(score > bestScore){
+			bestScore = score;
+		}
+		
+        // Handle the best stats and score
+        $("#score").html("<p>"+ns+" / "+bestNs+" [ Neutral Squares Hits ]</p><p>"+gs+" / "+bestGs+" [ Green Squares Hits ]</p><p>"+bs+" / "+bestBs+" [ Black Squares Hits ]</p><p>"+score+" / "+bestScore+" [ Final Score ]</p>");
         $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
         cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 20 - (dim / 2), x: 20 - (dim / 2)});
     }
