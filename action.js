@@ -8,11 +8,14 @@ $(function() {
 //Hide and show stuffs...
 $("#gameOver").hide();
 $("#score").hide();
+$("#transitionLevel").hide();
 
 // Initializing gameOn variable...
 	gameOn = 0;
 	
+	
 // Initializing the stats and score stuffs
+	level=1
 	ns=0;
 	gs=0;
 	bs=0;
@@ -30,12 +33,17 @@ var initialize = function() {
 	// Set some logical variables
 	gameOn = 1;
 	turn = 1;
-	
 	// Reinitializing the stats and score stuffs
 	ns=0;
 	gs=0;
 	bs=0;
 	score=0;
+	
+	// Initializing the factors for the difficulty of the intial level ( used in cn.addRowSquare )
+	greenfactor = 5;
+	whiteFactor1 = 4;
+	whiteFactor2 = 8;
+	blackFactor = 7;
 	
 	// Doing some html and CSS stuff
 	var ccng = $("#containerCarreNoirGame");
@@ -54,26 +62,39 @@ var initialize = function() {
 
 // Move the player square with the arrows
 	$(document).keydown(function(e) {
-		
-		if (gameOn === 0) {
-			if(e.keyCode === 13){
+					
+		if (gameOn === 0) {// The game hasn't been started
+			if(e.keyCode === 13){// Enter
 				cn.startGame(initialize);
 			}
 		}
 		
-		if (gameOn === 1) {
-			var newPos = cn.x("player");
-				switch (e.keyCode) {
-					case 37:// Left
-					newPos -= 40;
-					cn.movePlayerSquare(newPos);
-					break;
-					case 39:// Right
-					newPos += 40;
-					cn.movePlayerSquare(newPos);
-					break;
-				}
+		if (gameOn === 3) {// The game is displaying a level transition
+			if(e.keyCode === 13){// Enter	
+				$("#transitionLevel").hide();
+				cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
+				gameOn=1;
+			}
 		}
+		
+		if (gameOn === 1) {
+			/* Moves */
+			var newPos = cn.x("player");
+			switch (e.keyCode) {
+				case 37:// Left
+				newPos -= 40;
+				cn.movePlayerSquare(newPos);
+				cn.level(turn);
+				break;
+				case 39:// Right
+				newPos += 40;
+				cn.movePlayerSquare(newPos);
+				cn.level(turn);				
+				break;
+			}
+		}
+		
+		
 	});
 });
 

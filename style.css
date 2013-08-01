@@ -35,6 +35,7 @@ html{
 	z-index:69;
 }
 #containerCarreNoirGame #container,
+#containerCarreNoirGame #transitionLevel,
 #containerCarreNoirGame #gameOver{
 	position: absolute;
 	top:0;
@@ -46,4 +47,8 @@ html{
 }
 #containerCarreNoirGame #container{
 	background-color: yellow;
+}
+#containerCarreNoirGame #transitionLevel{
+	background-color: red;
+	z-index:99;
 }

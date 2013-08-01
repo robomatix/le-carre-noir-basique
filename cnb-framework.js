@@ -48,11 +48,11 @@ cn.addRowSquare = function() {
         var x = i * 40;
         // This determinate black,green or neutral square
         var bgn_random = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
-        if (bgn_random > 0 && bgn_random < 7) {// if random number > 7 -> black square otherwise green or neutral (white)F
+        if (bgn_random > 0 && bgn_random < greenfactor) {// if random number > 7 -> black square otherwise green or neutral (white)F
             bgn = "green";
-        } else if (bgn_random > 6 && bgn_random < 10) {
+        } else if (bgn_random > whiteFactor1 && bgn_random < whiteFactor2) {
             bgn = "white";
-        } else if (bgn_random > 9) {
+        } else if (bgn_random > blackFactor) {
             bgn = "black";
         }
         cn.addSquare("container", "square-" + turn + "-" + i, {dim: 40, bgColor: bgn, y: 0, x: x});
@@ -200,6 +200,41 @@ cn.movePlayerSquare = function(newPos) {
     cn.addRowSquare(turn);
     turn++;
 };
+/**
+ * This function Checks and determines levels changes
+ **/
+cn.level = function(turn){
+	switch (turn) {
+		case 40:// Level 2
+		cn.newLevel(2);
+		break;
+		case 70:// Level 3
+		cn.newLevel(3);
+		break;
+	}
+	}
+/**
+ * This function sets the parameters of a level
+ **/
+cn.newLevel = function(level) {
+	switch(level){// todo later : instead of a switch, put the parameters directly in the parameters of the fonction => more flexible
+		case 2:
+			greenfactor = 7;
+			whiteFactor1 = 6;
+			whiteFactor2 = 10;
+			blackFactor = 9;
+		break;
+		case 3:
+			greenfactor = 8;
+			whiteFactor1 = 7;
+			whiteFactor2 = 10;
+			blackFactor = 9;
+		break;
+		}
+	$("#jauge").remove();// Jauge is remove before being putting it back with his new datas in action.js...
+	$("#transitionLevel").html('Level : '+level).show();
+	gameOn=3;// The game is now displaying a level transition
+}
 /**
  * Start the game
  **/
