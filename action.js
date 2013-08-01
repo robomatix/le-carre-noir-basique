@@ -15,18 +15,18 @@ $("#transitionLevel").hide();
 	
 	
 // Initializing the stats and score stuffs
-	level=1
-	ns=0;
-	gs=0;
-	bs=0;
-	score=0;
-	fns=1;
-	fgs=1;
-	fbs=3;
-	bestNs=0;
-	bestGs=0;
-	bestBs=0;
-	bestScore=0;
+	level = 1
+	ns = 0;
+	gs = 0;
+	bs = 0;
+	score = 0;
+	fns = 1;
+	fgs = 1;
+	fbs = 3;
+	bestNs = 0;
+	bestGs = 0;
+	bestBs = 0;
+	bestScore = 0;
 
 var initialize = function() {
 	
@@ -34,10 +34,10 @@ var initialize = function() {
 	gameOn = 1;
 	turn = 1;
 	// Reinitializing the stats and score stuffs
-	ns=0;
-	gs=0;
-	bs=0;
-	score=0;
+	ns = 0;
+	gs = 0;
+	bs = 0;
+	score = 0;
 	
 	// Initializing the factors for the difficulty of the intial level ( used in cn.addRowSquare )
 	greenfactor = 5;
