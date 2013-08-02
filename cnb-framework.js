@@ -122,10 +122,13 @@ cn.squareCollisionPlayer = function(typeSquare) {
     
     /* Game ends or Continues ? */
     if (dim === 36) {// Game ends when the dim of the jauge checked is 36px, just before reaching the fatal 40px
+    
+		$("#container").remove();
         gameOn = 0;
-        $("#container").remove();
-        $("#gameOver").show();
+        cn.levelTransition('end');// Calls the transition level for the end when the Game is Over
+        
     } else { // Game continues... Next turn
+    
         switch (typeSquare) {
             case 'green':
                 if (dim < 36) {
@@ -143,6 +146,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
                     ns++;
                 break;
         }
+        
         // Calculing the score
         score = (ns*fns)-(gs*fns)+(bs*fns)+turn-10;
         
@@ -221,11 +225,11 @@ cn.movePlayerSquare = function(newPos) {
 cn.level = function(turn){
 	
 	switch (turn) {
-		case 20:// Level 2
+		case 40:// Level 2
 			level = 2;// Assign the value of level to display it on the side of the #containerCarreNoirGame and use it to determinate the newLevel
 			cn.newLevel(level);
 		break;
-		case 40:// Level 3
+		case 100:// Level 3
 			level = 3;
 			cn.newLevel(level);
 		break;
@@ -263,7 +267,12 @@ cn.newLevel = function(level) {
  **/
 cn.levelTransition = function(level) {
 	
-	$("#transitionLevel").html('<p id="exclamation">!</p><p id="levelReached">Level : '+level+'</p>').show();
+			var messageTransition = '<p id="levelReached">Level : '+level+'</p>';
+			if(gameOn === 0){// If the Game is Over
+				messageTransition = '<p id="levelReached">GAME OVER</p>';
+			}
+	
+	$("#transitionLevel").html('<p id="exclamation">!</p>'+messageTransition).show();
 	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAnimation,666);// Stopped in action.js if (gameOn === 3)
 	
 	// Initializing some logical variables
@@ -306,7 +315,14 @@ cn.levelTransitionAnimation = function() {
 	}else{// The pictures are loaded and the text blinked four times at least
 		
 		if(picturesDisplayed === 0){// Displaying the pictures
-			$('#transitionLevel').html('<p id="bgLevel">Level '+level+' >>> Press Enter</p>'+greenPicture+normalPicture);
+		
+			var messageTransition = '<p id="bgLevel">Level '+level+' >>> Press Enter</p>';
+			if(gameOn === 0){// If the Game is Over
+				messageTransition = '<p id="bgLevel">To ReStart >>> Press Enter</p>';
+			}
+			
+			$('#transitionLevel').html(messageTransition+greenPicture+normalPicture);
+			
 			picturesDisplayed = 1;
 		}
 		

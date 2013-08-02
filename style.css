@@ -35,8 +35,7 @@ html{
 	z-index:69;
 }
 #containerCarreNoirGame #container,
-#containerCarreNoirGame #transitionLevel,
-#containerCarreNoirGame #gameOver{
+#containerCarreNoirGame #transitionLevel{
 	position: absolute;
 	top:0;
 	display: block;

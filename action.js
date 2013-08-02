@@ -5,8 +5,7 @@
 * */
 $(function() {
 	
-//Hide and show stuffs...
-$("#gameOver").hide();
+//Hide some stuffs...
 $("#score").hide();
 $("#transitionLevel").hide();
 
@@ -53,8 +52,11 @@ var initialize = function() {
 	var scoreTop=ccngPosition.top+60;// Compensate the border and the margin
 	var scoreLeft=ccngPosition.left+440;// Compensate the border and the width + space
 
+	$("#transitionLevel").hide(); // Does it makes an error the firt time ?
+	if (typeof (myIntervalTransitionLevel) != 'undefined'){ 
+		window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition of the end when the Game is Over  
+	}
 	$("#score").show().css({"top" : scoreTop+"px","left" : scoreLeft+"px" }).html("<p>"+level+" / "+bestLevel+" [ Level started ]</p><p>"+ns+" / "+bestNs+" [ Neutral Squares Hits ]</p><p>"+gs+" / "+bestGs+" [ Green Squares Hits ]</p><p>"+bs+" / "+bestBs+" [ Black Squares Hits ]</p><p>"+score+" / "+bestScore+" [ Final Score ]</p>");
-	$("#gameOver").hide();
 	ccng.append("<div id='container'>");
 	cn.addSquare("container", "player", {dim: 40, bgColor: "black", y: 360, x: 120});
 	$("#player").css({'z-index': 100});
@@ -74,7 +76,6 @@ var initialize = function() {
 		if (gameOn === 3) {// The game is displaying a level transition
 			if(e.keyCode === 13){// Enter	
 				$("#transitionLevel").hide();
-				myIntervalTransitionLevel
 				window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition blinked
 				cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
 				gameOn=1;
