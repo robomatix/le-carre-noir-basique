@@ -9,7 +9,7 @@ Started monday 29 July 2013 by Robomatix Rebirth
 /* CSS RESET */
 @import url(reset.css);
 
-/* STYLING */
+/* STYLING THE PAGE */
 html{
 	font-family: Arial, Helvetica, sans-serif;
 	color: black;
@@ -48,7 +48,29 @@ html{
 #containerCarreNoirGame #container{
 	background-color: yellow;
 }
+
+/* STYLING THE LEVEL TRANSITION */
 #containerCarreNoirGame #transitionLevel{
 	background-color: green;
-	z-index:99;
+	z-index: 99;
+}
+#containerCarreNoirGame #transitionLevel p{
+	float: left;
+	margin: 0;
+	width: 100%;
+	text-align: center;
+	color: black;
+}
+#containerCarreNoirGame #transitionLevel #exclamation{
+	font-size: 370px;
+}
+#containerCarreNoirGame #transitionLevel #levelReached{
+	background-color: yellow;
+	padding: 3px 0;
+}
+#containerCarreNoirGame #transitionLevel.black{
+	background-color: black;
+}
+#containerCarreNoirGame #transitionLevel.black #exclamation{
+	color: green;
 }

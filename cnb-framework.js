@@ -262,8 +262,19 @@ cn.newLevel = function(level) {
  * This function display the level transition
  **/
 cn.levelTransition = function(level) {
-	$("#transitionLevel").html('Level TTTTTTTT : '+level).show();
+	$("#transitionLevel").html('<p id="exclamation">!</p><p id="levelReached">Level : '+level+'</p>').show();
+	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAlternate,333);// Stooped in action
+	
 }
+/**
+ * This function altetenate the green and black exclamation transition
+ **/
+cn.levelTransitionAlternate = function() {
+	if($('#transitionLevel').hasClass('black')===true){
+		$("#transitionLevel").removeClass("black");
+	}else{
+		$("#transitionLevel").addClass("black");}
+	} 
 /**
  * Start the game
  **/

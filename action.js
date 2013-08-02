@@ -74,6 +74,8 @@ var initialize = function() {
 		if (gameOn === 3) {// The game is displaying a level transition
 			if(e.keyCode === 13){// Enter	
 				$("#transitionLevel").hide();
+				myIntervalTransitionLevel
+				window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition blinked
 				cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
 				gameOn=1;
 			}
