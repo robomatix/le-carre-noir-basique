@@ -94,10 +94,7 @@ var initialize = function() {
 				cn.level(turn);				
 				break;
 			}
-		}
-		
-		
+		}		
 	});
+	
 });
-
-

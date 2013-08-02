@@ -13,6 +13,7 @@ cn.initialize = function(options) {
  * Square Object.
  **/
 cn.square = function(options) {
+	
     var defaultValues = {// Useless ????
         bgColor: "#F00",
         dim: 40
@@ -26,6 +27,7 @@ cn.square = function(options) {
  **/
 cn.squareFragment = $("<div style='position: absolute'></div>");
 cn.addSquare = function(parentId, divId, options) {
+	
     var options = $.extend({
         x: 0,
         y: 0,
@@ -39,11 +41,13 @@ cn.addSquare = function(parentId, divId, options) {
         height: options.dim,
         backgroundColor: options.bgColor
     }).attr("id", divId).data("cn", options));
+    
 };
 /**
  * This function adds a row of squares at the top
  **/
 cn.addRowSquare = function() {
+	
     for (var i = 0; i < 10; i++) {
         var x = i * 40;
         // This determinate black,green or neutral square
@@ -57,6 +61,7 @@ cn.addRowSquare = function() {
         }
         cn.addSquare("container", "square-" + turn + "-" + i, {dim: 40, bgColor: bgn, y: 0, x: x});
     }
+    
 };
 /**
  * This function :
@@ -65,7 +70,9 @@ cn.addRowSquare = function() {
  * Remove the bottom line of computer squares
  **/
 cn.moveRowSquare = function(turn) {
+	
     i = 1;
+    
     if (turn > 11) {
         i = turn - 10;
     }
@@ -95,6 +102,7 @@ cn.removeSquare = function(divId, y) {
  * This function test The collision with the square of the player
  **/
 cn.testCollisionPlayer = function(divId, y) {
+	
     if (y === 360) {
         xPosSquare = cn.x(divId);
         xPosPlayer = cn.x('player');
@@ -102,7 +110,6 @@ cn.testCollisionPlayer = function(divId, y) {
             var typeSquare = $("#" + divId).data("cn").bgColor;
             cn.squareCollisionPlayer(typeSquare);
         }
-
     }
 
 };
@@ -110,6 +117,7 @@ cn.testCollisionPlayer = function(divId, y) {
  * This function makes the action after a collision with a square according to the type of the square
  **/
 cn.squareCollisionPlayer = function(typeSquare) {
+	
     dim = $("#jauge").data("cn").dim;
     
     /* Game ends or Continues ? */
@@ -166,6 +174,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
  * This function sets or returns the position along the x-axis.
  **/
 cn.x = function(divId, position) {
+	
     if (position) {
         if (position === "zero") {// Hack to avoid 0 that doesn't seem to work...
             position = 0;
@@ -175,17 +184,20 @@ cn.x = function(divId, position) {
     } else {
         return $("#" + divId).data("cn").x;
     }
+    
 };
 /**
  * This function sets or returns the position along the y-axis.
  **/
 cn.y = function(divId, position) {
+	
     if (position) {
         $("#" + divId).css("top", position);
         $("#" + divId).data("cn").y = position;
     } else {
         return $("#" + divId).data("cn").y;
     }
+    
 };
 /**
  * This function moves the player square
@@ -207,12 +219,13 @@ cn.movePlayerSquare = function(newPos) {
  * This function Checks and determines levels changes
  **/
 cn.level = function(turn){
+	
 	switch (turn) {
-		case 40:// Level 2
+		case 20:// Level 2
 			level = 2;// Assign the value of level to display it on the side of the #containerCarreNoirGame and use it to determinate the newLevel
 			cn.newLevel(level);
 		break;
-		case 90:// Level 3
+		case 40:// Level 3
 			level = 3;
 			cn.newLevel(level);
 		break;
@@ -222,6 +235,7 @@ cn.level = function(turn){
  * This function sets the parameters of a level
  **/
 cn.newLevel = function(level) {
+	
 	switch(level){// todo later : instead of a switch, put the parameters directly in the parameters of the fonction => more flexible
 		case 2:
 			greenfactor = 7;
@@ -242,6 +256,7 @@ cn.newLevel = function(level) {
 	cn.levelTransition(level);// Calls the transition level
 
 	gameOn=3;// The game is now displaying a level transition
+	
 }
 /**
  * This function display the level transition
@@ -255,5 +270,3 @@ cn.levelTransition = function(level) {
 cn.startGame = function(endCallback) {
     endCallback();
 };
-
-
