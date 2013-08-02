@@ -230,7 +230,7 @@ cn.level = function(turn){
 			cn.newLevel(level);
 		break;
 	}
-}
+};
 /**
  * This function sets the parameters of a level
  **/
@@ -257,24 +257,65 @@ cn.newLevel = function(level) {
 
 	gameOn=3;// The game is now displaying a level transition
 	
-}
+};
 /**
  * This function display the level transition
  **/
 cn.levelTransition = function(level) {
-	$("#transitionLevel").html('<p id="exclamation">!</p><p id="levelReached">Level : '+level+'</p>').show();
-	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAlternate,777);// Stopped in action.js if (gameOn === 3) {
 	
-}
+	$("#transitionLevel").html('<p id="exclamation">!</p><p id="levelReached">Level : '+level+'</p>').show();
+	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAnimation,666);// Stopped in action.js if (gameOn === 3)
+	
+	// Initializing some logical variables
+	timesExcamationBlinked = 0;
+	greenPictureLoaded = 0;
+	normalPictureLoaded = 0;
+	picturesDisplayed = 0;
+	
+	// Randomly choose 1 'image' according to the level ( in fact 2 image in a green version and a normal version )
+	var picture_random = Math.floor((Math.random() * 5) + 1); // random number between 1 and 5
+	greenPicture = '<img src="images/level'+level+'/'+picture_random+'g.jpg" id="greenPicture"/>';
+	normalPicture = '<img src="images/level'+level+'/'+picture_random+'n.jpg" id="normalPicture"/>';
+
+	// Load the randomly chosen pictures
+	$('#transitionLevel').load(greenPicture, function() {
+		greenPictureLoaded=1;		
+	});
+	$('#transitionLevel').load(normalPicture, function() {
+		normalPictureLoaded=1;		
+	});
+	
+};
 /**
- * This function altetenate the green and black exclamation transition
+ * This function handle the level animation
  **/
-cn.levelTransitionAlternate = function() {
-	if($('#transitionLevel').hasClass('black')===true){
-		$("#transitionLevel").removeClass("black");
-	}else{
-		$("#transitionLevel").addClass("black");}
-	} 
+cn.levelTransitionAnimation = function() {
+	
+
+	// Display some stuff while loading the pictures
+	if(greenPictureLoaded === 0 || normalPictureLoaded === 0 || timesExcamationBlinked < 4){
+		
+		timesExcamationBlinked++;
+		
+		if($('#transitionLevel').hasClass('black') === true){
+			$("#transitionLevel").removeClass("black");
+		}else{
+			$("#transitionLevel").addClass("black");
+		}
+		
+	}else{// The pictures are loaded and the text blinked four times at least
+		
+		if(picturesDisplayed === 0){// Displaying the pictures
+			$('#transitionLevel').html('<p id="bgLevel">Level '+level+' >>> Press Enter</p>'+greenPicture+normalPicture);
+			picturesDisplayed = 1;
+		}
+		
+		if(picturesDisplayed === 1){// Weird effect on the pictures
+			$("#greenPicture").fadeOut(222).delay(222).fadeIn(222);// Fading in and out for a weird effect 
+		}
+		
+	}
+};	
 /**
  * Start the game
  **/
