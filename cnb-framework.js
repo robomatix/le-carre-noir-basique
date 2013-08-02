@@ -139,6 +139,9 @@ cn.squareCollisionPlayer = function(typeSquare) {
         score = (ns*fns)-(gs*fns)+(bs*fns)+turn-10;
         
         // Handling the best stats and score
+        if(level > bestLevel){
+			bestLevel = level;
+		}
         if(ns > bestNs){
 			bestNs = ns;
 		}
@@ -153,7 +156,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
 		}
 		
         // Handle the best stats and score
-        $("#score").html("<p>"+ns+" / "+bestNs+" [ Neutral Squares Hits ]</p><p>"+gs+" / "+bestGs+" [ Green Squares Hits ]</p><p>"+bs+" / "+bestBs+" [ Black Squares Hits ]</p><p>"+score+" / "+bestScore+" [ Final Score ]</p>");
+        $("#score").html("<p>"+level+" / "+bestLevel+" [ Level started ]</p><p>"+ns+" / "+bestNs+" [ Neutral Squares Hits ]</p><p>"+gs+" / "+bestGs+" [ Green Squares Hits ]</p><p>"+bs+" / "+bestBs+" [ Black Squares Hits ]</p><p>"+score+" / "+bestScore+" [ Final Score ]</p>");
         $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
         cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 20 - (dim / 2), x: 20 - (dim / 2)});
     }
@@ -206,13 +209,15 @@ cn.movePlayerSquare = function(newPos) {
 cn.level = function(turn){
 	switch (turn) {
 		case 40:// Level 2
-		cn.newLevel(2);
+			level = 2;// Assign the value of level to display it on the side of the #containerCarreNoirGame and use it to determinate the newLevel
+			cn.newLevel(level);
 		break;
-		case 70:// Level 3
-		cn.newLevel(3);
+		case 90:// Level 3
+			level = 3;
+			cn.newLevel(level);
 		break;
 	}
-	}
+}
 /**
  * This function sets the parameters of a level
  **/
@@ -231,9 +236,18 @@ cn.newLevel = function(level) {
 			blackFactor = 9;
 		break;
 		}
+		
 	$("#jauge").remove();// Jauge is remove before being putting it back with his new datas in action.js...
-	$("#transitionLevel").html('Level : '+level).show();
+	
+	cn.levelTransition(level);// Calls the transition level
+
 	gameOn=3;// The game is now displaying a level transition
+}
+/**
+ * This function display the level transition
+ **/
+cn.levelTransition = function(level) {
+	$("#transitionLevel").html('Level TTTTTTTT : '+level).show();
 }
 /**
  * Start the game
