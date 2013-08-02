@@ -65,12 +65,15 @@ html{
 	font-size: 370px;
 }
 #containerCarreNoirGame #transitionLevel #levelReached{
-	background-color: yellow;
 	padding: 3px 0;
+	font-weight: bold;
+	font-size: 22px;
 }
 #containerCarreNoirGame #transitionLevel.black{
 	background-color: black;
 }
-#containerCarreNoirGame #transitionLevel.black #exclamation{
+#containerCarreNoirGame #transitionLevel.black #exclamation,
+#containerCarreNoirGame #transitionLevel.black #levelReached
+{
 	color: green;
 }

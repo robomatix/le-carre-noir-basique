@@ -263,7 +263,7 @@ cn.newLevel = function(level) {
  **/
 cn.levelTransition = function(level) {
 	$("#transitionLevel").html('<p id="exclamation">!</p><p id="levelReached">Level : '+level+'</p>').show();
-	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAlternate,333);// Stooped in action
+	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAlternate,777);// Stopped in action.js if (gameOn === 3) {
 	
 }
 /**
