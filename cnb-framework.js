@@ -323,7 +323,7 @@ cn.levelTransitionAnimation = function() {
 		
 			var messageTransition = '<p id="bgLevel">Level '+level+' >>> Press Enter</p>';
 			if(gameOn === 0){// If the Game is Over
-				messageTransition = '<p id="bgLevel">To ReStart >>> Press Enter</p><p id="shareScoreTwitter">Press \'w\' to share your score on Twitter</p>';
+				messageTransition = '<p id="bgLevel">To ReStart >>> Press Enter</p><p id="shareScoreTumblr">Press \'t\' to share your score on Tumblr</p><p id="shareScoreTwitter">Press \'w\' to share your score on Twitter</p>';
 			}
 			
 			$('#transitionLevel').html(messageTransition+greenPicture+normalPicture);
