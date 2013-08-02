@@ -76,12 +76,16 @@ html{
 {
 	color: green;
 }
-#containerCarreNoirGame #transitionLevel #bgLevel{
+#containerCarreNoirGame #transitionLevel #bgLevel,
+#containerCarreNoirGame #transitionLevel #shareScoreTwitter{
 	position: absolute;
-	top: 300px;
+	top: 340px;
 	z-index: 4;
 	padding: 3px 0;
 	background-color: yellow;
+}
+#containerCarreNoirGame #transitionLevel #shareScoreTwitter{
+	top: 360px;
 }
 #containerCarreNoirGame #transitionLevel #greenPicture{
 	position: absolute;

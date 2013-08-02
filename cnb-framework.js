@@ -147,6 +147,9 @@ cn.squareCollisionPlayer = function(typeSquare) {
         gameOn = 0;
         cn.levelTransition('end');// Calls the transition level for the end when the Game is Over
         
+        // Add some social stuff
+
+        
     } else { // Game continues... Next turn
             
         // Calculing the score
@@ -320,7 +323,7 @@ cn.levelTransitionAnimation = function() {
 		
 			var messageTransition = '<p id="bgLevel">Level '+level+' >>> Press Enter</p>';
 			if(gameOn === 0){// If the Game is Over
-				messageTransition = '<p id="bgLevel">To ReStart >>> Press Enter</p>';
+				messageTransition = '<p id="bgLevel">To ReStart >>> Press Enter</p><p id="shareScoreTwitter">Press \'w\' to share your score on Twitter</p>';
 			}
 			
 			$('#transitionLevel').html(messageTransition+greenPicture+normalPicture);

@@ -68,9 +68,15 @@ var initialize = function() {
 	$(document).keydown(function(e) {
 					
 		if (gameOn === 0) {// The game hasn't been started
+		
 			if(e.keyCode === 13){// Enter
 				cn.startGame(initialize);
 			}
+			
+			if(e.keyCode === 87 && score > 0 ){// w -> Share on twitter
+				window.open('http://twitter.com/home?status='+score+' is my score on the beta version of Le Carré Noir Basique V 1.0.0 beta : http://www.le-carre-noir.net','_blank');
+			}
+						 
 		}
 		
 		if (gameOn === 3) {// The game is displaying a level transition
