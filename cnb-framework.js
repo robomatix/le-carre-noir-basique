@@ -118,35 +118,37 @@ cn.testCollisionPlayer = function(divId, y) {
  **/
 cn.squareCollisionPlayer = function(typeSquare) {
 	
+	// Determinate the previous dim
     dim = $("#jauge").data("cn").dim;
     
+    // Determinate this turn dim
+	switch (typeSquare) {
+	case 'green':
+		if (dim < 40) {
+			dim += 4;// Increase the size of the jauge
+			gs++;
+		}
+		break;
+	case 'black':
+		if (dim >= 0) {
+			dim -= 4;// Decrease the size of the jauge
+			bs++;
+		}
+		break;
+   case 'white':
+			ns++;
+		break;
+}
+    
     /* Game ends or Continues ? */
-    if (dim === 36) {// Game ends when the dim of the jauge checked is 36px, just before reaching the fatal 40px
+    if (dim === 40) {// Game ends when the dim of the jauge checked is 36px, just before reaching the fatal 40px
     
 		$("#container").remove();
         gameOn = 0;
         cn.levelTransition('end');// Calls the transition level for the end when the Game is Over
         
     } else { // Game continues... Next turn
-    
-        switch (typeSquare) {
-            case 'green':
-                if (dim < 36) {
-                    dim += 4;// Increase the size of the jauge
-                    gs++;
-                }
-                break;
-            case 'black':
-                if (dim >= 0) {
-                    dim -= 4;// Decrease the size of the jauge
-                    bs++;
-                }
-                break;
-           case 'white':
-                    ns++;
-                break;
-        }
-        
+            
         // Calculing the score
         score = (ns*fns)-(gs*fns)+(bs*fns)+turn-10;
         
