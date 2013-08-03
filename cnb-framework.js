@@ -323,7 +323,7 @@ cn.levelTransitionAnimation = function() {
 		
 			var messageTransition = '<p id="bgLevel">Level '+level+' >>> Press Enter</p>';
 			if(gameOn === 0){// If the Game is Over
-				messageTransition = '<p id="bgLevel">To ReStart >>> Press Enter</p><p id="shareScoreTumblr">Press \'t\' to share your score on Tumblr</p><p id="shareScoreTwitter">Press \'w\' to share your score on Twitter</p>';
+				messageTransition = '<p id="bgLevel">To ReStart >>> Press Enter</p><div id="getSocial"><p id="shareScoreTumblr">Press \'t\' to share your score on Tumblr</p><p id="shareScoreTwitter">Press \'w\' to share your score on Twitter</p></div>';
 			}
 			
 			$('#transitionLevel').html(messageTransition+greenPicture+normalPicture);
@@ -332,7 +332,9 @@ cn.levelTransitionAnimation = function() {
 		}
 		
 		if(picturesDisplayed === 1){// Weird effect on the pictures
-			$("#greenPicture").fadeOut(222).delay(222).fadeIn(222);// Fading in and out for a weird effect 
+			$("#greenPicture").fadeOut(222).delay(222).fadeIn(222);// Fading in and out for a weird effect
+			$("#getSocial").fadeOut(222).delay(222).fadeIn(222);// Fading in and out for a weird effect
+			
 		}
 		
 	}
