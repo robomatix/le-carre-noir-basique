@@ -58,7 +58,8 @@ var initialize = function() {
 	}
 	$("#score").show().css({"top" : scoreTop+"px","left" : scoreLeft+"px" }).html("<p>"+level+" / "+bestLevel+" [ Level started ]</p><p>"+ns+" / "+bestNs+" [ Neutral Squares Hits ]</p><p>"+gs+" / "+bestGs+" [ Green Squares Hits ]</p><p>"+bs+" / "+bestBs+" [ Black Squares Hits ]</p><p>"+score+" / "+bestScore+" [ Final Score ]</p>");
 	ccng.append("<div id='container'>");
-	cn.addSquare("container", "player", {dim: 40, bgColor: "black", y: 360, x: 120});
+	var x_player_random = Math.floor((Math.random() * 10))*40; // random number between 0 and 9 and the * 40 to randomly determinate the position of the player at the begenning of the game
+	cn.addSquare("container", "player", {dim: 40, bgColor: "black", y: 360, x: x_player_random});
 	$("#player").css({'z-index': 100});
 	cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
 	
