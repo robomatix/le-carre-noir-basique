@@ -1,8 +1,10 @@
 /* 
- * CARRE NOIR BASIQUE FRAMEWORK
- * V 0.0.1
- * Started saturday 06 July 2013 by Robomatix Rebirth
- * */
+CARRE NOIR BASIQUE FRAMEWORK
+V 0.0.1
+Started saturday 06 July 2013 by Robomatix Rebirth
+V 1.0.0 Beta released on the 03 August 2013
+Licence GNU GPL
+* */
 cn = {};
 
 cn.initialize = function(options) {
