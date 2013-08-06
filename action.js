@@ -78,12 +78,12 @@ var initialize = function() {
 			
 			if(e.keyCode === 84 && score > 0 ){// t -> Share on tumblr
 				tumblr_quote_quote=score+' is my score on the beta version of Le Carré Noir Basique V 1.0.0 beta';
-				tumblr_quote_source='<a href="http://www.le-carre-noir.net/lcnb-v-1-0-0-beta/" target="_blank">Le Carré Noir Basique Version V.1.0.0</a>';
+				tumblr_quote_source='<a href="http://le-carre-noir.net/lcnb-v-1-0-0-beta/" target="_blank">Le Carré Noir Basique Version V.1.0.0</a>';
 				window.open("http://www.tumblr.com/share/quote?quote=" + encodeURIComponent(tumblr_quote_quote) + "&source=" + encodeURIComponent(tumblr_quote_source),"_blank");
 			}
 			
 			if(e.keyCode === 87 && score > 0 ){// w -> Share on twitter
-				window.open('http://twitter.com/home?status='+score+' is my score on the beta version of Le Carré Noir Basique V 1.0.0 beta : http://www.le-carre-noir.net/lcnb-v-1-0-0-beta/','_blank');
+				window.open('http://twitter.com/home?status='+score+' is my score on the beta version of Le Carré Noir Basique V 1.0.0 beta : http://le-carre-noir.net/lcnb-v-1-0-0-beta/','_blank');
 			}	
 				 
 		}
