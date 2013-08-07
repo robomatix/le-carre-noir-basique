@@ -32,12 +32,18 @@ html{
 #restartShareButton{
 	position: relative;
 	top:-50000000px;
-	width: 460px;
+	width: 440px;
 	text-align: center;
 }
 #restartShareButton p{
 	font-size: 22px;
 	font-weight: bold;
+}
+#restartShareButton p#shareYourScore{
+	margin-bottom: 10px;
+}
+#restartShareButton p#restart{
+	margin-top: 15px;
 }
 #containerCarreNoirGame p{
 	position: relative;

@@ -325,12 +325,16 @@ cn.levelTransitionAnimation = function() {
 				
 				$("#restartShareButton").css({ "top" : "0" , "margin" : "0 auto" }); // Restart instructions
 				
-				// Tumblr stuff ( needs some js stuff on the index page before </body> )
-				tumblr_photo_click_thru = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
-				tumblr_photo_source = tumblr_photo_click_thru+'images/levelend/'+picture_random+'n.jpg';
-				tumblr_photo_caption = score+' is my score on the beta version of Le Carré Noir Basique V 1.0.0 beta ! Click on the picture to play to this fucking game !!!';					
-				tumblrButtonHref = 'http://www.tumblr.com/share/photo?source=' + encodeURIComponent(tumblr_photo_source) + '&caption=' + encodeURIComponent(tumblr_photo_caption) + '&click_thru=' + encodeURIComponent(tumblr_photo_click_thru);	
+				adressPage = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
+				// Tumblr stuff ( needs some js stuff on the index page before </body> and a button )				
+				tumblr_photo_source = adressPage+'images/levelend/'+picture_random+'n.jpg';
+				tumblr_photo_caption = score + ' is my score on Le Carré Noir Basique V 1.0.0 beta ! Click on the picture to play to this fucking game !!!';					
+				tumblrButtonHref = 'http://www.tumblr.com/share/photo?source=' + encodeURIComponent(tumblr_photo_source) + '&caption=' + encodeURIComponent(tumblr_photo_caption) + '&click_thru=' + encodeURIComponent(adressPage);	
 				$("a.tumblrButton").prop("href", tumblrButtonHref);
+				
+				// Twitter stuff ( needs some js stuff below below and a button on the index page )
+				$(".twitter-share-button").attr("data-text" , score + ' is my score on Le Carré Noir Basique V 1.0.0 beta !' + adressPage);
+				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 				
 			}
 			

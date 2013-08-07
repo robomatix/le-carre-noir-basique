@@ -75,10 +75,6 @@ var initialize = function() {
 		
 			if(e.keyCode === 13){// Enter
 				cn.startGame(initialize);
-			}
-			
-			if(e.keyCode === 87 && score > 0 ){// w -> Share on twitter
-				window.open('http://twitter.com/home?status='+score+' is my score on the beta version of Le Carré Noir Basique V 1.0.0 beta : http://le-carre-noir.net/lcnb-v-1-0-0-beta/','_blank');
 			}	
 				 
 		}
