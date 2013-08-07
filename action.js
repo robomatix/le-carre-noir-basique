@@ -52,7 +52,7 @@ var initialize = function() {
 	var ccng = $("#containerCarreNoirGame");
 	var ccngPosition = ccng.position();
 	var scoreTop=ccngPosition.top+60;// Compensate the border and the margin
-	var scoreLeft=ccngPosition.left+440;// Compensate the border and the width + space
+	var scoreLeft=ccngPosition.left+540;// Compensate the border and the width + space
 
 	$("#transitionLevel").hide(); // Does it makes an error the firt time ?
 	$("#restartShareButton").css({ "top" : "-50000000000px" , "margin" : "0 auto" });
@@ -61,10 +61,10 @@ var initialize = function() {
 	}
 	$("#score").show().css({"top" : scoreTop+"px","left" : scoreLeft+"px" }).html("<p>"+level+" / "+bestLevel+" [ Level started ]</p><p>"+ns+" / "+bestNs+" [ Neutral Squares Hits ]</p><p>"+gs+" / "+bestGs+" [ Green Squares Hits ]</p><p>"+bs+" / "+bestBs+" [ Black Squares Hits ]</p><p>"+score+" / "+bestScore+" [ Final Score ]</p>");
 	ccng.append("<div id='container'>");
-	var x_player_random = Math.floor((Math.random() * 10))*40; // random number between 0 and 9 and the * 40 to randomly determinate the position of the player at the begenning of the game
-	cn.addSquare("container", "player", {dim: 40, bgColor: "black", y: 360, x: x_player_random});
+	var x_player_random = Math.floor((Math.random() * 10))*50; // random number between 0 and 9 and the * 40 to randomly determinate the position of the player at the begenning of the game
+	cn.addSquare("container", "player", {dim: 50, bgColor: "black", y: 450, x: x_player_random});
 	$("#player").css({'z-index': 100});
-	cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
+	cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 25, x: 25});
 	
 };
 
@@ -83,7 +83,7 @@ var initialize = function() {
 			if(e.keyCode === 13){// Enter	
 				$("#transitionLevel").hide();
 				window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition blinked
-				cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 20, x: 20});
+				cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 25, x: 25});
 				gameOn=1;
 			}
 		}
@@ -93,12 +93,12 @@ var initialize = function() {
 			var newPos = cn.x("player");
 			switch (e.keyCode) {
 				case 37:// Left
-				newPos -= 40;
+				newPos -= 50;
 				cn.movePlayerSquare(newPos);
 				cn.level(turn);
 				break;
 				case 39:// Right
-				newPos += 40;
+				newPos += 50;
 				cn.movePlayerSquare(newPos);
 				cn.level(turn);				
 				break;

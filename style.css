@@ -19,9 +19,9 @@ html{
 }
 #containerCarreNoirGame{
 	position: relative;
-	width: 400px;
-	height: 400px;
-	margin: 50px auto 0 auto;
+	width: 500px;
+	height: 500px;
+	margin: 25px auto 0 auto;
 	border: 10px solid black;
 	background-color: black;
 	overflow: hidden;
@@ -32,7 +32,7 @@ html{
 #restartShareButton{
 	position: relative;
 	top:-50000000px;
-	width: 420px;
+	width: 520px;
 	text-align: center;
 }
 #restartShareButton p{
@@ -64,8 +64,8 @@ html{
 	position: absolute;
 	top:0;
 	display: block;
-	width: 400px;
-	height: 400px;
+	width: 100%;
+	height: 100%;
 	background-color: green;
 	z-index:88;
 }
@@ -86,7 +86,7 @@ html{
 	color: black;
 }
 #containerCarreNoirGame #transitionLevel #exclamation{
-	font-size: 370px;
+	font-size: 480px;
 }
 #containerCarreNoirGame #transitionLevel.black{
 	background-color: black;
@@ -97,7 +97,7 @@ html{
 }
 #containerCarreNoirGame #transitionLevel #levelReached{
 	position: absolute;
-	top: 320px;
+	top: 380px;
 	z-index: 4;
 	padding: 3px 0;
 	color: yellow;

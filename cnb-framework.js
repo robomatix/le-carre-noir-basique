@@ -18,7 +18,7 @@ cn.square = function(options) {
 	
     var defaultValues = {// Useless ????
         bgColor: "#F00",
-        dim: 40
+        dim: 50
     };
     $.extend(this, defaultValues, options);
 
@@ -33,7 +33,7 @@ cn.addSquare = function(parentId, divId, options) {
     var options = $.extend({
         x: 0,
         y: 0,
-        dim: 40,
+        dim: 50,
         bgColor: "#ffe"
     }, options);
     $("#" + parentId).append(cn.squareFragment.clone().css({
@@ -51,7 +51,7 @@ cn.addSquare = function(parentId, divId, options) {
 cn.addRowSquare = function() {
 	
     for (var i = 0; i < 10; i++) {
-        var x = i * 40;
+        var x = i * 50;
         // This determinate black,green or neutral square
         var bgn_random = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
         if (bgn_random > 0 && bgn_random < greenfactor) {// if random number > 7 -> black square otherwise green or neutral (white)F
@@ -61,7 +61,7 @@ cn.addRowSquare = function() {
         } else if (bgn_random > blackFactor) {
             bgn = "black";
         }
-        cn.addSquare("container", "square-" + turn + "-" + i, {dim: 40, bgColor: bgn, y: 0, x: x});
+        cn.addSquare("container", "square-" + turn + "-" + i, {dim: 50, bgColor: bgn, y: 0, x: x});
     }
     
 };
@@ -83,7 +83,7 @@ cn.moveRowSquare = function(turn) {
         for (var ii = 0; ii < 10; ii++) {
             var square = "square-" + i + "-" + ii;
             var newPosSquare = cn.y(square);
-            newPosSquare += 40;
+            newPosSquare += 50;
             cn.y(square, newPosSquare);
             cn.testCollisionPlayer(square, newPosSquare);// Test collision between a square and the square of the player
 			cn.removeSquare(square, newPosSquare);// remove Squares  at the bottom line       
@@ -95,7 +95,7 @@ cn.moveRowSquare = function(turn) {
  * This function removes the line of squares below the player square
  **/
 cn.removeSquare = function(divId, y) {
-    if (y === 400) {
+    if (y === 500) {
         $("#" + divId).remove();
     }
 
@@ -105,7 +105,7 @@ cn.removeSquare = function(divId, y) {
  **/
 cn.testCollisionPlayer = function(divId, y) {
 	
-    if (y === 360) {
+    if (y === 450) {
         xPosSquare = cn.x(divId);
         xPosPlayer = cn.x('player');
         if (xPosSquare === xPosPlayer) {
@@ -126,14 +126,14 @@ cn.squareCollisionPlayer = function(typeSquare) {
     // Determinate this turn dim
 	switch (typeSquare) {
 	case 'green':
-		if (dim < 40) {
-			dim += 4;// Increase the size of the jauge
+		if (dim < 50) {
+			dim += 5;// Increase the size of the jauge
 			gs++;
 		}
 		break;
 	case 'black':
 		if (dim >= 0) {
-			dim -= 4;// Decrease the size of the jauge
+			dim -= 5;// Decrease the size of the jauge
 			bs++;
 		}
 		break;
@@ -143,14 +143,11 @@ cn.squareCollisionPlayer = function(typeSquare) {
 }
     
     /* Game ends or Continues ? */
-    if (dim === 40) {// Game ends when the dim of the jauge checked is 36px, just before reaching the fatal 40px
+    if (dim === 50) {// Game ends when the dim of the jauge checked is 50px
     
 		$("#container").remove();
         gameOn = 0;
         cn.levelTransition('end');// Calls the transition level for the end when the Game is Over
-        
-        // Add some social stuff
-
         
     } else { // Game continues... Next turn
             
@@ -177,7 +174,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
         // Handle the best stats and score
         $("#score").html("<p>"+level+" / "+bestLevel+" [ Level started ]</p><p>"+ns+" / "+bestNs+" [ Neutral Squares Hits ]</p><p>"+gs+" / "+bestGs+" [ Green Squares Hits ]</p><p>"+bs+" / "+bestBs+" [ Black Squares Hits ]</p><p>"+score+" / "+bestScore+" [ Final Score ]</p>");
         $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
-        cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 20 - (dim / 2), x: 20 - (dim / 2)});
+        cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 25 - (dim / 2), x: 25 - (dim / 2)});
     }
 
 };
@@ -214,7 +211,7 @@ cn.y = function(divId, position) {
  * This function moves the player square
  **/
 cn.movePlayerSquare = function(newPos) {
-    if (newPos > -40 && newPos < 400) {// Test to avoid to get out of the game container
+    if (newPos > -50 && newPos < 500) {// Test to avoid to get out of the game container
         if (newPos === 0) {// Hack to avoid 0 that doesn't seem to work...
             newPos = "zero";
         }
@@ -232,11 +229,11 @@ cn.movePlayerSquare = function(newPos) {
 cn.level = function(turn){
 	
 	switch (turn) {
-		case 40:// Level 2
+		case 50:// Level 2
 			level = 2;// Assign the value of level to display it on the side of the #containerCarreNoirGame and use it to determinate the newLevel
 			cn.newLevel(level);
 		break;
-		case 100:// Level 3
+		case 160:// Level 3
 			level = 3;
 			cn.newLevel(level);
 		break;
