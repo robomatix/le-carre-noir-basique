@@ -280,7 +280,7 @@ cn.levelTransition = function(level) {
 			}
 	
 	$("#transitionLevel").html('<p id="exclamation">!</p>'+messageTransition).show();
-	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAnimation,666);// Stopped in action.js if (gameOn === 3)
+	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAnimation,460);// Stopped in action.js if (gameOn === 3)
 	
 	// Initializing some logical variables
 	timesExcamationBlinked = 0;
@@ -333,9 +333,8 @@ cn.levelTransitionAnimation = function() {
 			picturesDisplayed = 1;
 		}
 		
-		if(picturesDisplayed === 1){// Weird effect on the pictures
-			$("#greenPicture").fadeOut(222).delay(222).fadeIn(222);// Fading in and out for a weird effect
-			$("#getSocial").fadeOut(222).delay(222).fadeIn(222);// Fading in and out for a weird effect
+		if(picturesDisplayed === 1){// blink effect on the pictures
+			$("#greenPicture").fadeOut(90).delay(140).fadeIn(90).delay(140);// hiding and showing green picture for a blinky effect ( I use fadeX(y) because delay dosen't works with show() and hide())
 			
 		}
 		
