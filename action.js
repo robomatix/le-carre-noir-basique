@@ -7,15 +7,14 @@ Licence GNU GPL
 * */
 $(function() {
 	
-//Hide some stuffs...
-$("#score").hide();
-$("#transitionLevel").hide();
+	//Hide some stuff...
+	$("#transitionLevel").hide();
 
-// Initializing gameOn variable...
+	// Initializing gameOn variable...
 	gameOn = 0;
 	
 	
-// Initializing the stats and score stuffs
+	// Initializing the stats and score stuffs
 	level = 1
 	ns = 0;
 	gs = 0;
@@ -59,7 +58,7 @@ var initialize = function() {
 	if (typeof (myIntervalTransitionLevel) != 'undefined'){ 
 		window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition of the end when the Game is Over  
 	}
-	$("#score").show().css({"top" : scoreTop+"px","left" : scoreLeft+"px" }).html("<p>"+level+" / "+bestLevel+" [ Level started ]</p><p>"+ns+" / "+bestNs+" [ Neutral Squares Hits ]</p><p>"+gs+" / "+bestGs+" [ Green Squares Hits ]</p><p>"+bs+" / "+bestBs+" [ Black Squares Hits ]</p><p>"+score+" / "+bestScore+" [ Final Score ]</p>");
+	cn.displayScore();
 	ccng.append("<div id='container'>");
 	var x_player_random = Math.floor((Math.random() * 10))*50; // random number between 0 and 9 and the * 40 to randomly determinate the position of the player at the begenning of the game
 	cn.addSquare("container", "player", {dim: 50, bgColor: "black", y: 450, x: x_player_random});

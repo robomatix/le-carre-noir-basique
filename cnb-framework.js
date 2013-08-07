@@ -172,7 +172,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
 		}
 		
         // Handle the best stats and score
-        $("#score").html("<p>"+level+" / "+bestLevel+" [ Level started ]</p><p>"+ns+" / "+bestNs+" [ Neutral Squares Hits ]</p><p>"+gs+" / "+bestGs+" [ Green Squares Hits ]</p><p>"+bs+" / "+bestBs+" [ Black Squares Hits ]</p><p>"+score+" / "+bestScore+" [ Final Score ]</p>");
+        cn.displayScore();
         $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
         cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 25 - (dim / 2), x: 25 - (dim / 2)});
     }
@@ -297,8 +297,7 @@ cn.levelTransition = function(level) {
 /**
  * This function handle the level animation
  **/
-cn.levelTransitionAnimation = function() {
-	
+cn.levelTransitionAnimation = function() {	
 
 	// Display some stuff while loading the pictures
 	if(greenPictureLoaded === 0 || normalPictureLoaded === 0 || timesExcamationBlinked < 3){
@@ -346,7 +345,13 @@ cn.levelTransitionAnimation = function() {
 		}
 		
 	}
-};	
+};
+/**
+ * This function display the score
+ **/
+cn.displayScore = function() {
+	$("#score").html("<p>[ Level started : "+level+" / "+bestLevel+" ] [ Neutral Squares Hits : "+ns+" / "+bestNs+" ]</p><p>[ Green Squares Hits :"+gs+" / "+bestGs+" ]  [ Black Squares Hits :"+bs+" / "+bestBs+" ]</p><p>[ Final Score : "+score+" / "+bestScore+" ]</p>");	
+};
 /**
  * Start the game
  **/
