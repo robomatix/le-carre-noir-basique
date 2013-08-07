@@ -229,11 +229,11 @@ cn.movePlayerSquare = function(newPos) {
 cn.level = function(turn){
 	
 	switch (turn) {
-		case 50:// Level 2
+		case 80:// Level 2
 			level = 2;// Assign the value of level to display it on the side of the #containerCarreNoirGame and use it to determinate the newLevel
 			cn.newLevel(level);
 		break;
-		case 160:// Level 3
+		case 180:// Level 3
 			level = 3;
 			cn.newLevel(level);
 		break;
