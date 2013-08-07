@@ -21,13 +21,23 @@ html{
 	position: relative;
 	width: 400px;
 	height: 400px;
-	margin: 50px auto 50px auto;
+	margin: 50px auto 10px auto;
 	border: 10px solid black;
 	background-color: black;
 	overflow: hidden;
 }
 #score{
 	position: absolute;
+}
+#restartShareButton{
+	position: relative;
+	top:-50000000px;
+	width: 460px;
+	text-align: center;
+}
+#restartShareButton p{
+	font-size: 22px;
+	font-weight: bold;
 }
 #containerCarreNoirGame p{
 	position: relative;
@@ -65,20 +75,14 @@ html{
 #containerCarreNoirGame #transitionLevel #exclamation{
 	font-size: 370px;
 }
-#containerCarreNoirGame #transitionLevel #levelReached{
-	padding: 3px 0;
-	font-weight: bold;
-	font-size: 22px;
-}
 #containerCarreNoirGame #transitionLevel.black{
 	background-color: black;
 }
-#containerCarreNoirGame #transitionLevel.black #exclamation,
-#containerCarreNoirGame #transitionLevel.black #levelReached
+#containerCarreNoirGame #transitionLevel.black #exclamation
 {
 	color: green;
 }
-#containerCarreNoirGame #transitionLevel #bgLevel{
+#containerCarreNoirGame #transitionLevel #levelReached{
 	position: absolute;
 	top: 320px;
 	z-index: 4;

@@ -55,6 +55,7 @@ var initialize = function() {
 	var scoreLeft=ccngPosition.left+440;// Compensate the border and the width + space
 
 	$("#transitionLevel").hide(); // Does it makes an error the firt time ?
+	$("#restartShareButton").css({ "top" : "-50000000000px" , "margin" : "0 auto" });
 	if (typeof (myIntervalTransitionLevel) != 'undefined'){ 
 		window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition of the end when the Game is Over  
 	}
@@ -74,12 +75,6 @@ var initialize = function() {
 		
 			if(e.keyCode === 13){// Enter
 				cn.startGame(initialize);
-			}
-			
-			if(e.keyCode === 84 && score > 0 ){// t -> Share on tumblr
-				tumblr_quote_quote=score+' is my score on the beta version of Le Carré Noir Basique V 1.0.0 beta';
-				tumblr_quote_source='<a href="http://le-carre-noir.net/lcnb-v-1-0-0-beta/" target="_blank">Le Carré Noir Basique Version V.1.0.0</a>';
-				window.open("http://www.tumblr.com/share/quote?quote=" + encodeURIComponent(tumblr_quote_quote) + "&source=" + encodeURIComponent(tumblr_quote_source),"_blank");
 			}
 			
 			if(e.keyCode === 87 && score > 0 ){// w -> Share on twitter

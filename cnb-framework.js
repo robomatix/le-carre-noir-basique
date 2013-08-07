@@ -274,12 +274,7 @@ cn.newLevel = function(level) {
  **/
 cn.levelTransition = function(level) {
 	
-			var messageTransition = '<p id="levelReached">Level : '+level+'</p>';
-			if(gameOn === 0){// If the Game is Over
-				messageTransition = '<p id="levelReached">GAME OVER</p>';
-			}
-	
-	$("#transitionLevel").html('<p id="exclamation">!</p>'+messageTransition).show();
+	$("#transitionLevel").html('<p id="exclamation">!</p>').show();
 	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAnimation,460);// Stopped in action.js if (gameOn === 3)
 	
 	// Initializing some logical variables
@@ -288,11 +283,11 @@ cn.levelTransition = function(level) {
 	normalPictureLoaded = 0;
 	picturesDisplayed = 0;
 	
-	// Randomly choose 1 'image' according to the level ( in fact 2 image in a green version and a normal version )
-	var picture_random = Math.floor((Math.random() * 5) + 1); // random number between 1 and 5
+	// Randomly choose 1 'image' according to the level ( in fact 2 images, 1 in a green version and 1 a normal version )
+	picture_random = Math.floor((Math.random() * 5) + 1); // random number between 1 and 5
 	greenPicture = '<img src="images/level'+level+'/'+picture_random+'g.jpg" id="greenPicture"/>';
 	normalPicture = '<img src="images/level'+level+'/'+picture_random+'n.jpg" id="normalPicture"/>';
-
+	
 	// Load the randomly chosen pictures
 	$('#transitionLevel').load(greenPicture, function() {
 		greenPictureLoaded=1;		
@@ -309,7 +304,7 @@ cn.levelTransitionAnimation = function() {
 	
 
 	// Display some stuff while loading the pictures
-	if(greenPictureLoaded === 0 || normalPictureLoaded === 0 || timesExcamationBlinked < 4){
+	if(greenPictureLoaded === 0 || normalPictureLoaded === 0 || timesExcamationBlinked < 3){
 		
 		timesExcamationBlinked++;
 		
@@ -319,13 +314,24 @@ cn.levelTransitionAnimation = function() {
 			$("#transitionLevel").addClass("black");
 		}
 		
-	}else{// The pictures are loaded and the text blinked four times at least
+	}else{// The pictures are loaded and the text blinked twice at least
 		
 		if(picturesDisplayed === 0){// Displaying the pictures
 		
-			var messageTransition = '<p id="bgLevel">Level '+level+' >>> Press Enter</p>';
+			var messageTransition = '<p id="levelReached">Level '+level+' >>> Press Enter</p>';
 			if(gameOn === 0){// If the Game is Over
-				messageTransition = '<p id="bgLevel">To ReStart >>> Press Enter</p><div id="getSocial"><p id="shareScoreTumblr">Press \'t\' to share your score on Tumblr</p><p id="shareScoreTwitter">Press \'w\' to share your score on Twitter</p></div>';
+			
+				messageTransition = '<p id="levelReached">GAME OVER</p>';
+				
+				$("#restartShareButton").css({ "top" : "0" , "margin" : "0 auto" }); // Restart instructions
+				
+				// Tumblr stuff ( needs some js stuff on the index page before </body> )
+				tumblr_photo_click_thru = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
+				tumblr_photo_source = tumblr_photo_click_thru+'images/levelend/'+picture_random+'n.jpg';
+				tumblr_photo_caption = score+' is my score on the beta version of Le Carré Noir Basique V 1.0.0 beta ! Click on the picture to play to this fucking game !!!';					
+				tumblrButtonHref = 'http://www.tumblr.com/share/photo?source=' + encodeURIComponent(tumblr_photo_source) + '&caption=' + encodeURIComponent(tumblr_photo_caption) + '&click_thru=' + encodeURIComponent(tumblr_photo_click_thru);	
+				$("a.tumblrButton").prop("href", tumblrButtonHref);
+				
 			}
 			
 			$('#transitionLevel').html(messageTransition+greenPicture+normalPicture);
