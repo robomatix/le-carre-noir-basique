@@ -21,7 +21,7 @@ html{
 	position: relative;
 	width: 400px;
 	height: 400px;
-	margin: 50px auto 10px auto;
+	margin: 50px auto 0 auto;
 	border: 10px solid black;
 	background-color: black;
 	overflow: hidden;
@@ -32,17 +32,24 @@ html{
 #restartShareButton{
 	position: relative;
 	top:-50000000px;
-	width: 440px;
+	width: 420px;
 	text-align: center;
 }
 #restartShareButton p{
 	font-size: 22px;
 	font-weight: bold;
 }
-#restartShareButton p#shareYourScore{
-	margin-bottom: 10px;
-}
+
 #restartShareButton p#restart{
+	padding: 5px 0;
+	color: yellow;
+	background-color: black;
+}
+#restartShareButton div.fb-like{
+	background-color: black;
+	border: 10px solid black;
+}
+#restartShareButton p#shareYourScore{
 	margin-top: 15px;
 }
 #containerCarreNoirGame p{

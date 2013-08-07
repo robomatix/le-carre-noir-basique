@@ -333,7 +333,7 @@ cn.levelTransitionAnimation = function() {
 				$("a.tumblrButton").prop("href", tumblrButtonHref);
 				
 				// Twitter stuff ( needs some js stuff below below and a button on the index page )
-				$(".twitter-share-button").attr("data-text" , score + ' is my score on Le Carré Noir Basique V 1.0.0 beta !' + adressPage);
+				$(".twitter-share-button").attr("data-text" , score + ' is my score on Le Carré Noir Basique V 1.0.0 beta ! ');
 				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 				
 			}

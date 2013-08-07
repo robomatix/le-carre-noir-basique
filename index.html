@@ -7,9 +7,18 @@ Licence GNU GPL
 -->
 <html>
 <head>
-<title>Le carré noir</title>
+<title>Le Carré Noir Basique V1.0.0 beta</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="http://le-carre-noir.net/lcnb-v-1-0-0-beta/" />
+<link rel="image_src" href="http://le-carre-noir.net/lcnb-v-1-0-0-beta/images/logos/logo-lcnb-v100-beta.png" /><!-- To choose the picture displayed in app such as FB -->
+<meta property="og:image" content="http://le-carre-noir.net/lcnb-v-1-0-0-beta/images/logos/logo-lcnb-v100-beta.png" /><!-- To choose the picture displayed in app such as FB -->
+<meta property="og:title" content="Le Carré Noir Basique V1.0.0 beta og" /><!-- To inform app such as FB -->
+<meta property="og:url" content="http://le-carre-noir.net/lcnb-v-1-0-0-beta/" /><!-- To inform app such as FB -->
+<meta property="og:description" content="Voici la version V.1.0.0.beta du jeu Le carré Noir Basique og" /><!-- To inform app such as FB -->
+
+<meta name="description" content="Voici la version V.1.0.0.beta du jeu Le carré Noir Basique" />
+
 <!--[if lt IE 9]>
 <script src="html5shiv.js"></script>
 <![endif]-->
@@ -18,8 +27,17 @@ Licence GNU GPL
 <script src="cnb-framework.js"></script>
 <script src="action.js"></script>
 
+<meta name="robots" content="noindex, nofollow">
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	
 <div id="containerCarreNoirGame">
 	<p>>EN : Press 'Enter' to start the game !<br />Then, use the left and right arrows of your keyboard to play...</p>
@@ -30,13 +48,19 @@ Licence GNU GPL
 <div id="score"></div><!-- #score -->
 <div id="restartShareButton">
 	
+	<p id="restart">To ReStart >>> Press Enter</p>	
+	
+	<div class="fb-like" data-href="http://le-carre-noir.net/lcnb-v-1-0-0-beta/" data-width="400" data-colorscheme="dark" data-show-faces="true" data-send="true"></div>
+	
 	<p id="shareYourScore">Share Your Score</p>
 	
 	<a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2T.png') top left no-repeat transparent;" class="tumblrButton">Share on Tumblr</a>
 	
 	<a href="https://twitter.com/share" class="twitter-share-button" data-text="Pouet pouet" data-via="LeCarreNoir" data-hashtags="LeCarreNoir,gaming" data-dnt="true">Tweeter</a>
 	
-	<p id="restart">To ReStart >>> Press Enter</p>
+	
+	
+
 	
 </div><!-- #restartShareButton -->
 
