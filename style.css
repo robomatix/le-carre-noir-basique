@@ -50,12 +50,23 @@ html{
 	background-color: black;
 	font-size: 18px;
 }
+#restartShareButton p.shareYourScorePage{
+	margin-top: 15px;
+}
 #restartShareButton div.fb-like{
+	display: block;
+	width: 300px;
+	margin: 5px auto 0 auto;
 	background-color: black;
 	border: 10px solid black;
 }
-#restartShareButton p#shareYourScore{
-	margin-top: 15px;
+#restartShareButton #googlePlus{
+	background-color: black;
+	border: 10px solid black;
+	border-top: none;
+	width: 300px;
+	text-align: center;
+	margin: 0 auto;
 }
 #containerCarreNoirGame p{
 	position: relative;
