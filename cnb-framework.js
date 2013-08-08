@@ -132,7 +132,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
 		}
 		break;
 	case 'black':
-		if (dim >= 0) {
+		if (dim > 0) {
 			dim -= 5;// Decrease the size of the jauge
 			bs++;
 		}
