@@ -48,6 +48,7 @@ html{
 	padding: 5px 0;
 	color: yellow;
 	background-color: black;
+	font-size: 18px;
 }
 #restartShareButton div.fb-like{
 	background-color: black;
