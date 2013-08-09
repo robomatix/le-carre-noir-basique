@@ -25,6 +25,19 @@ html{
 	margin: 10px auto 0 auto;
 	text-align: center;
 }
+#shareScoreButtons{
+	position: absolute;
+	top:-50000000px;
+	left: 50%;
+	margin-left: -260px;
+	width: 520px;
+	text-align: center;
+	z-index: 777;
+}
+#shareScoreButtons p{
+	color: yellow;
+	padding-bottom: 7px;
+}
 #containerCarreNoirGame{
 	position: relative;
 	width: 500px;
@@ -34,40 +47,9 @@ html{
 	background-color: black;
 	overflow: hidden;
 }
-#restartShareButton{
-	position: relative;
-	top:-50000000px;
-	width: 520px;
-	text-align: center;
-}
 #restartShareButton p{
 	font-size: 22px;
 	font-weight: bold;
-}
-
-#restartShareButton p#restart{
-	padding: 5px 0;
-	color: yellow;
-	background-color: black;
-	font-size: 18px;
-}
-#restartShareButton p.shareYourScorePage{
-	margin-top: 15px;
-}
-#restartShareButton div.fb-like{
-	display: block;
-	width: 300px;
-	margin: 5px auto 0 auto;
-	background-color: black;
-	border: 10px solid black;
-}
-#restartShareButton #googlePlus{
-	background-color: black;
-	border: 10px solid black;
-	border-top: none;
-	width: 300px;
-	text-align: center;
-	margin: 0 auto;
 }
 #containerCarreNoirGame p{
 	position: relative;
@@ -114,12 +96,21 @@ html{
 }
 #containerCarreNoirGame #transitionLevel #levelReached{
 	position: absolute;
-	top: 380px;
+	top: 360px;
 	z-index: 4;
 	padding: 3px 0;
 	color: yellow;
 	font-size: 32px;
 	font-weight: bold;
+}
+#containerCarreNoirGame #transitionLevel #restart{
+	position: absolute;
+	top: 400px;
+	z-index: 4;
+	font-weight: bold;
+	width: 100%;
+	color: yellow;
+	font-size: 18px;
 }
 #containerCarreNoirGame #transitionLevel #greenPicture{
 	position: absolute;
@@ -128,4 +119,22 @@ html{
 #containerCarreNoirGame #transitionLevel #normalPicture{
 	position: absolute;
 	z-index: 2;
+}
+footer{
+	margin-top: 260px;
+	width: 100%;
+	height: 200px;
+	background-color: black;
+	text-align: center;
+	padding-bottom: 20px;
+}
+footer p.shareYourScorePage{
+	color: yellow;
+	font-size:18px;
+	padding: 15px 0; 
+}
+footer .fb-like{
+	width: 300px;
+	margin: 15px auto;
+	display: block;
 }

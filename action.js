@@ -55,7 +55,7 @@ var initialize = function() {
 	var scoreLeft=ccngPosition.left+540;// Compensate the border and the width + space
 
 	$("#transitionLevel").hide(); // Does it makes an error the firt time ?
-	$("#restartShareButton").css({ "top" : "-50000000000px" , "margin" : "0 auto" });
+	$("#shareScoreButtons").css({ "top" : "-50000000000px" });
 	if (typeof (myIntervalTransitionLevel) != 'undefined'){ 
 		window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition of the end when the Game is Over  
 	}

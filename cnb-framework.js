@@ -318,9 +318,9 @@ cn.levelTransitionAnimation = function() {
 			var messageTransition = '<p id="levelReached">Level '+level+' >>> Press Enter</p>';
 			if(gameOn === 0){// If the Game is Over
 			
-				messageTransition = '<p id="levelReached">GAME OVER</p>';
+				messageTransition = '<p id="levelReached">GAME OVER</p><p id="restart">To ReStart >> Click on the picture >> Press Enter</p>';
 				
-				$("#restartShareButton").css({ "top" : "0" , "margin" : "0 auto" }); // Restart instructions
+				$("#shareScoreButtons").css({ "top" : "510" }); // Share Score
 				
 				adressPage = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
 				// Tumblr stuff ( needs some js stuff on the index page before </body> and a button )				
