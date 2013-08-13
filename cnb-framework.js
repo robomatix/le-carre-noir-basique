@@ -315,7 +315,7 @@ cn.levelTransitionAnimation = function() {
 		
 		if(picturesDisplayed === 0){// Displaying the pictures
 		
-			var messageTransition = '<p id="levelReached">Level '+level+' >>> Press Enter</p>';
+			var messageTransition = '<p id="levelReached">Go to Level '+level+' >>> Press Enter</p>';
 			if(gameOn === 0){// If the Game is Over
 			
 				messageTransition = '<p id="levelReached">GAME OVER</p><p id="restart">To ReStart >> Click on the picture >> Press Enter</p>';
