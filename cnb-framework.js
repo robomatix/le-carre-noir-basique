@@ -283,15 +283,18 @@ cn.levelTransition = function(level) {
 	
 	// Randomly choose 1 'image' according to the level ( in fact 2 images, 1 in a green version and 1 a normal version )
 	picture_random = Math.floor((Math.random() * 5) + 1); // random number between 1 and 5
-	greenPicture = '<img src="images/level'+level+'/'+picture_random+'g.jpg" id="greenPicture"/>';
-	normalPicture = '<img src="images/level'+level+'/'+picture_random+'n.jpg" id="normalPicture"/>';
+	greenPicture = 'images/level'+level+'/'+picture_random+'g.jpg';
+	normalPicture = 'images/level'+level+'/'+picture_random+'n.jpg';
+	greenPictureDisplay = '<img src="'+greenPicture+'" id="greenPicture"/>';
+	normalPictureDisplay = '<img src="'+normalPicture+'" id="normalPicture"/>';
+	
 	
 	// Load the randomly chosen pictures
-	$('#transitionLevel').load(greenPicture, function() {
-		greenPictureLoaded=1;		
+	$('#transitionLevel').load(greenPictureDisplay, function() {
+		greenPictureLoaded=1;	
 	});
-	$('#transitionLevel').load(normalPicture, function() {
-		normalPictureLoaded=1;		
+	$('#transitionLevel').load(normalPictureDisplay, function() {
+		normalPictureLoaded=1;					
 	});
 	
 };
@@ -335,7 +338,7 @@ cn.levelTransitionAnimation = function() {
 				
 			}
 			
-			$('#transitionLevel').html(messageTransition+greenPicture+normalPicture);
+			$('#transitionLevel').html(messageTransition+greenPictureDisplay+normalPictureDisplay);
 			
 			picturesDisplayed = 1;
 		}
