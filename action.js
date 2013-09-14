@@ -6,10 +6,16 @@ V 1.0.0 Beta released on the 03 August 2013
 V 1.0.0 Beta2 released on the 08 August 2013
 Licence GNU GPL
 * */
-$(function() {
+
+
+//GLOBALS
+SQUARE_SIZE = 50;
+COLOR_BLACK = 'black';
+COLOR_GREEN = 'green';
+COLOR_NEUTRAL = 'white';
+
 	
-	//GLOBAL
-	SQUARE_SIZE = 50;
+$(function() {
 	
 	//Hide some stuff...
 	$("#transitionLevel").hide();
@@ -66,9 +72,9 @@ var initialize = function() {
 	cn.displayScore();
 	ccng.append("<div id='container'>");
 	var x_player_random = Math.floor((Math.random() * 10))*50; // random number between 0 and 9 and the * 40 to randomly determinate the position of the player at the begenning of the game
-	cn.addSquare("container", "player", {dim: SQUARE_SIZE, bgColor: "black", y: 450, x: x_player_random});
+	cn.addSquare("container", "player", {dim: SQUARE_SIZE, bgColor: COLOR_BLACK, y: 450, x: x_player_random});
 	$("#player").css({'z-index': 100});
-	cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: SQUARE_SIZE/2, x: SQUARE_SIZE/2});
+	cn.addSquare("player", "jauge", {dim: 0, bgColor: COLOR_GREEN, y: SQUARE_SIZE/2, x: SQUARE_SIZE/2});
 	
 };
 
@@ -87,7 +93,7 @@ var initialize = function() {
 			if(e.keyCode === 13){// Enter	
 				$("#transitionLevel").hide();
 				window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition blinked
-				cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 25, x: 25});
+				cn.addSquare("player", "jauge", {dim: 0, bgColor: COLOR_GREEN, y: 25, x: 25});
 				levelOn = false;
 			}
 		}

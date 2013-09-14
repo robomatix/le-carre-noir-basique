@@ -55,12 +55,12 @@ cn.addRowSquare = function() {
         var x = i * SQUARE_SIZE;
         // This determinate black,green or neutral square
         var bgn_random = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
-        if (bgn_random > 0 && bgn_random < greenfactor) {// if random number > 7 -> black square otherwise green or neutral (white)F
-            bgn = "green";
+        if (bgn_random > 0 && bgn_random < greenfactor) {// if random number > 7 -> black square otherwise green or neutral (white)
+            bgn = COLOR_GREEN;
         } else if (bgn_random > whiteFactor1 && bgn_random < whiteFactor2) {
-            bgn = "white";
+            bgn = COLOR_NEUTRAL;
         } else if (bgn_random > blackFactor) {
-            bgn = "black";
+            bgn = COLOR_BLACK;
         }
         cn.addSquare("container", "square-" + turn + "-" + i, {dim: 50, bgColor: bgn, y: 0, x: x});
     }
@@ -126,19 +126,19 @@ cn.squareCollisionPlayer = function(typeSquare) {
     
     // Determinate this turn dim
 	switch (typeSquare) {
-	case 'green':
+	case COLOR_GREEN:
 		if (dim < SQUARE_SIZE) {
 			dim += 5;// Increase the size of the jauge
 			gs++;
 		}
 		break;
-	case 'black':
+	case COLOR_BLACK:
 		if (dim > 0) {
 			dim -= 5;// Decrease the size of the jauge
 			bs++;
 		}
 		break;
-   case 'white':
+   case COLOR_NEUTRAL:
 			ns++;
 		break;
 }
@@ -175,7 +175,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
         // Handle the best stats and score
         cn.displayScore();
         $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
-        cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: (SQUARE_SIZE/2) - (dim / 2), x: (SQUARE_SIZE/2) - (dim / 2)});
+        cn.addSquare("player", "jauge", {dim: dim, bgColor: COLOR_GREEN, y: (SQUARE_SIZE/2) - (dim / 2), x: (SQUARE_SIZE/2) - (dim / 2)});
     }
 
 };
