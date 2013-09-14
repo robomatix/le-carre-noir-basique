@@ -19,7 +19,7 @@ cn.square = function(options) {
 	
     var defaultValues = {// Useless ????
         bgColor: "#F00",
-        dim: 50
+        dim: SQUARE_SIZE
     };
     $.extend(this, defaultValues, options);
 
@@ -34,7 +34,7 @@ cn.addSquare = function(parentId, divId, options) {
     var options = $.extend({
         x: 0,
         y: 0,
-        dim: 50,
+        dim: SQUARE_SIZE,
         bgColor: "#ffe"
     }, options);
     $("#" + parentId).append(cn.squareFragment.clone().css({
@@ -52,7 +52,7 @@ cn.addSquare = function(parentId, divId, options) {
 cn.addRowSquare = function() {
 	
     for (var i = 0; i < 10; i++) {
-        var x = i * 50;
+        var x = i * SQUARE_SIZE;
         // This determinate black,green or neutral square
         var bgn_random = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
         if (bgn_random > 0 && bgn_random < greenfactor) {// if random number > 7 -> black square otherwise green or neutral (white)F
@@ -84,7 +84,7 @@ cn.moveRowSquare = function(turn) {
         for (var ii = 0; ii < 10; ii++) {
             var square = "square-" + i + "-" + ii;
             var newPosSquare = cn.y(square);
-            newPosSquare += 50;
+            newPosSquare += SQUARE_SIZE;
             cn.y(square, newPosSquare);
             cn.testCollisionPlayer(square, newPosSquare);// Test collision between a square and the square of the player
 			cn.removeSquare(square, newPosSquare);// remove Squares  at the bottom line       
@@ -127,7 +127,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
     // Determinate this turn dim
 	switch (typeSquare) {
 	case 'green':
-		if (dim < 50) {
+		if (dim < SQUARE_SIZE) {
 			dim += 5;// Increase the size of the jauge
 			gs++;
 		}
@@ -144,7 +144,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
 }
     
     /* Game ends or Continues ? */
-    if (dim === 50) {// Game ends when the dim of the jauge checked is 50px
+    if (dim === SQUARE_SIZE) {// Game ends when the dim of the jauge checked is the same size as the player square
     
 		$("#container").remove();
         gameOn = false;
@@ -175,7 +175,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
         // Handle the best stats and score
         cn.displayScore();
         $("#jauge").remove();// Jauge is remove before being putting it back with his new datas...
-        cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: 25 - (dim / 2), x: 25 - (dim / 2)});
+        cn.addSquare("player", "jauge", {dim: dim, bgColor: "green", y: (SQUARE_SIZE/2) - (dim / 2), x: (SQUARE_SIZE/2) - (dim / 2)});
     }
 
 };
@@ -212,7 +212,7 @@ cn.y = function(divId, position) {
  * This function moves the player square
  **/
 cn.movePlayerSquare = function(newPos) {
-    if (newPos > -50 && newPos < 500) {// Test to avoid to get out of the game container
+    if (newPos > -SQUARE_SIZE && newPos < 500) {// Test to avoid to get out of the game container
         if (newPos === 0) {// Hack to avoid 0 that doesn't seem to work...
             newPos = "zero";
         }

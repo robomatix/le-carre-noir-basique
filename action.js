@@ -8,6 +8,9 @@ Licence GNU GPL
 * */
 $(function() {
 	
+	//GLOBAL
+	SQUARE_SIZE = 50;
+	
 	//Hide some stuff...
 	$("#transitionLevel").hide();
 
@@ -63,9 +66,9 @@ var initialize = function() {
 	cn.displayScore();
 	ccng.append("<div id='container'>");
 	var x_player_random = Math.floor((Math.random() * 10))*50; // random number between 0 and 9 and the * 40 to randomly determinate the position of the player at the begenning of the game
-	cn.addSquare("container", "player", {dim: 50, bgColor: "black", y: 450, x: x_player_random});
+	cn.addSquare("container", "player", {dim: SQUARE_SIZE, bgColor: "black", y: 450, x: x_player_random});
 	$("#player").css({'z-index': 100});
-	cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 25, x: 25});
+	cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: SQUARE_SIZE/2, x: SQUARE_SIZE/2});
 	
 };
 
@@ -94,12 +97,12 @@ var initialize = function() {
 			var newPos = cn.x("player");
 			switch (e.keyCode) {
 				case 37:// Left
-				newPos -= 50;
+				newPos -= SQUARE_SIZE;
 				cn.movePlayerSquare(newPos);
 				cn.level(turn);
 				break;
 				case 39:// Right
-				newPos += 50;
+				newPos += SQUARE_SIZE;
 				cn.movePlayerSquare(newPos);
 				cn.level(turn);				
 				break;
