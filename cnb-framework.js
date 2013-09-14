@@ -128,13 +128,13 @@ cn.squareCollisionPlayer = function(typeSquare) {
 	switch (typeSquare) {
 	case COLOR_GREEN:
 		if (dim < SQUARE_SIZE) {
-			dim += 5;// Increase the size of the jauge
+			dim += JAUGE_STEP;// Increase the size of the jauge
 			gs++;
 		}
 		break;
 	case COLOR_BLACK:
 		if (dim > 0) {
-			dim -= 5;// Decrease the size of the jauge
+			dim -= JAUGE_STEP;// Decrease the size of the jauge
 			bs++;
 		}
 		break;
