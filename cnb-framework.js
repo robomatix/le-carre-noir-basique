@@ -230,11 +230,11 @@ cn.movePlayerSquare = function(newPos) {
 cn.level = function(turn){
 	
 	switch (turn) {
-		case 80:// Level 2
+		case LEVEL_2_END:// Level 2
 			level = 2;// Assign the value of level to display it on the side of the #containerCarreNoirGame and use it to determinate the newLevel
 			cn.newLevel(level);
 		break;
-		case 180:// Level 3
+		case LEVEL_3_END:// Level 3
 			level = 3;
 			cn.newLevel(level);
 		break;
@@ -325,11 +325,11 @@ cn.levelTransitionAnimation = function() {
 				
 				$("#shareScoreButtons").css({ "top" : "510" }); // Share Score
 				
-				adressPage = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
+				ADDRESS_PAGE = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
 				// Tumblr stuff ( needs some js stuff on the index page before </body> and a button )				
-				tumblr_photo_source = adressPage+'images/levelend/'+picture_random+'n.jpg';
+				tumblr_photo_source = ADDRESS_PAGE+'images/levelend/'+picture_random+'n.jpg';
 				tumblr_photo_caption = score + ' is my score on Le Carré Noir Basique V 1.0.0 beta ! Click on the picture to play to this fucking game !!!';					
-				tumblrButtonHref = 'http://www.tumblr.com/share/photo?source=' + encodeURIComponent(tumblr_photo_source) + '&caption=' + encodeURIComponent(tumblr_photo_caption) + '&click_thru=' + encodeURIComponent(adressPage);	
+				tumblrButtonHref = 'http://www.tumblr.com/share/photo?source=' + encodeURIComponent(tumblr_photo_source) + '&caption=' + encodeURIComponent(tumblr_photo_caption) + '&click_thru=' + encodeURIComponent(ADDRESS_PAGE);	
 				$("a.tumblrButton").prop("href", tumblrButtonHref);
 				
 				// Twitter stuff ( needs some js stuff below below and a button on the index page )

@@ -15,6 +15,9 @@ JAUGE_STEP = 5;
 COLOR_BLACK = 'black';
 COLOR_GREEN = 'green';
 COLOR_NEUTRAL = 'white';
+LEVEL_2_END = 80;
+LEVEL_3_END = 180;
+ADDRESS_PAGE = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
 
 	
 $(function() {
