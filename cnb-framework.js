@@ -62,7 +62,7 @@ cn.addRowSquare = function() {
         } else if (bgn_random > blackFactor) {
             bgn = COLOR_BLACK;
         }
-        cn.addSquare("container", "square-" + turn + "-" + i, {dim: 50, bgColor: bgn, y: 0, x: x});
+        cn.addSquare("container", "square-" + turn + "-" + i, {dim: SQUARE_SIZE, bgColor: bgn, y: 0, x: x});
     }
     
 };
