@@ -229,36 +229,25 @@ cn.movePlayerSquare = function(newPos) {
  **/
 cn.level = function(turn){
 	
-	switch (turn) {
+	switch (turn) {// TODO LATER : Put the parameters of newLevel in a config file
 		case LEVEL_2_END:// Level 2
-			level = 2;// Assign the value of level to display it on the side of the #containerCarreNoirGame and use it to determinate the newLevel
-			cn.newLevel(level);
+			cn.newLevel(2,7,6,10,9);
 		break;
 		case LEVEL_3_END:// Level 3
-			level = 3;
-			cn.newLevel(level);
+			cn.newLevel(3,8,7,10,9);
 		break;
 	}
 };
 /**
  * This function sets the parameters of a level
  **/
-cn.newLevel = function(level) {
+cn.newLevel = function(levelP,greenfactorP,whiteFactor1P,whiteFactor2P,blackFactorP) {
 	
-	switch(level){// todo later : instead of a switch, put the parameters directly in the parameters of the fonction => more flexible
-		case 2:
-			greenfactor = 7;
-			whiteFactor1 = 6;
-			whiteFactor2 = 10;
-			blackFactor = 9;
-		break;
-		case 3:
-			greenfactor = 8;
-			whiteFactor1 = 7;
-			whiteFactor2 = 10;
-			blackFactor = 9;
-		break;
-		}
+			level = levelP;
+			greenfactor = greenfactorP;
+			whiteFactor1 = whiteFactor1P;
+			whiteFactor2 = whiteFactor2P;
+			blackFactor = blackFactorP;
 		
 	$("#jauge").remove();// Jauge is remove before being putting it back with his new datas in action.js...
 	
