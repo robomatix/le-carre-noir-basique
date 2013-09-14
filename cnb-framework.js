@@ -147,7 +147,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
     if (dim === 50) {// Game ends when the dim of the jauge checked is 50px
     
 		$("#container").remove();
-        gameOn = 0;
+        gameOn = false;
         cn.levelTransition('end');// Calls the transition level for the end when the Game is Over
         
     } else { // Game continues... Next turn
@@ -264,7 +264,7 @@ cn.newLevel = function(level) {
 	
 	cn.levelTransition(level);// Calls the transition level
 
-	gameOn=3;// The game is now displaying a level transition
+	levelOn = true;// The game is now displaying a level transition
 	
 };
 /**
@@ -273,7 +273,7 @@ cn.newLevel = function(level) {
 cn.levelTransition = function(level) {
 	
 	$("#transitionLevel").html('<p id="exclamation">!</p>').show();
-	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAnimation,520);// Stopped in action.js if (gameOn === 3)
+	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAnimation,520);// Stopped in action.js if (levelOn)
 	
 	// Initializing some logical variables
 	timesExcamationBlinked = false;
@@ -319,7 +319,7 @@ cn.levelTransitionAnimation = function() {
 		if( !picturesDisplayed ){// Displaying the pictures
 		
 			var messageTransition = '<p id="levelReached">Go to Level '+level+' >>> Press Enter</p>';
-			if(gameOn === 0){// If the Game is Over
+			if( !gameOn) {// If the Game is Over
 			
 				messageTransition = '<p id="levelReached">GAME OVER</p><p id="restart">To ReStart >> Click on the picture >> Press Enter</p>';
 				

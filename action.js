@@ -11,8 +11,9 @@ $(function() {
 	//Hide some stuff...
 	$("#transitionLevel").hide();
 
-	// Initializing gameOn variable...
-	gameOn = 0;
+	// Initializing game state variables...
+	gameOn = false;
+	levelOn = false;
 	
 	
 	// Initializing the stats and score stuffs
@@ -33,7 +34,7 @@ $(function() {
 var initialize = function() {
 	
 	// Set some logical variables
-	gameOn = 1;
+	gameOn = true;
 	turn = 1;
 	// Reinitializing the stats and score stuffs
 	level = 1
@@ -71,7 +72,7 @@ var initialize = function() {
 // Do differents actions depending on the game statut when pressing some key on the keyboard
 	$(document).keydown(function(e) {
 					
-		if (gameOn === 0) {// The game hasn't been started
+		if (!gameOn && !levelOn) {// The game hasn't been started
 		
 			if(e.keyCode === 13){// Enter
 				cn.startGame(initialize);
@@ -79,16 +80,16 @@ var initialize = function() {
 				 
 		}
 		
-		if (gameOn === 3) {// The game is displaying a level transition
+		if (levelOn) {// The game is displaying a level transition
 			if(e.keyCode === 13){// Enter	
 				$("#transitionLevel").hide();
 				window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition blinked
 				cn.addSquare("player", "jauge", {dim: 0, bgColor: "green", y: 25, x: 25});
-				gameOn=1;
+				levelOn = false;
 			}
 		}
 		
-		if (gameOn === 1) {// The game is on !!!
+		if (gameOn && !levelOn) {// The game is on !!!
 			/* Moves */
 			var newPos = cn.x("player");
 			switch (e.keyCode) {
