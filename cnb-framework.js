@@ -276,10 +276,10 @@ cn.levelTransition = function(level) {
 	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAnimation,520);// Stopped in action.js if (gameOn === 3)
 	
 	// Initializing some logical variables
-	timesExcamationBlinked = 0;
-	greenPictureLoaded = 0;
-	normalPictureLoaded = 0;
-	picturesDisplayed = 0;
+	timesExcamationBlinked = false;
+	greenPictureLoaded = false;
+	normalPictureLoaded = false;
+	picturesDisplayed = false;
 	
 	// Randomly choose 1 'image' according to the level ( in fact 2 images, 1 in a green version and 1 a normal version )
 	picture_random = Math.floor((Math.random() * 5) + 1); // random number between 1 and 5
@@ -291,10 +291,10 @@ cn.levelTransition = function(level) {
 	
 	// Load the randomly chosen pictures
 	$('#transitionLevel').load(greenPictureDisplay, function() {
-		greenPictureLoaded=1;	
+		greenPictureLoaded = true;	
 	});
 	$('#transitionLevel').load(normalPictureDisplay, function() {
-		normalPictureLoaded=1;					
+		normalPictureLoaded = true;					
 	});
 	
 };
@@ -304,7 +304,7 @@ cn.levelTransition = function(level) {
 cn.levelTransitionAnimation = function() {	
 
 	// Display some stuff while loading the pictures
-	if(greenPictureLoaded === 0 || normalPictureLoaded === 0 || timesExcamationBlinked < 3){
+	if( !greenPictureLoaded || !normalPictureLoaded || timesExcamationBlinked < 3){
 		
 		timesExcamationBlinked++;
 		
@@ -316,7 +316,7 @@ cn.levelTransitionAnimation = function() {
 		
 	}else{// The pictures are loaded and the text blinked twice at least
 		
-		if(picturesDisplayed === 0){// Displaying the pictures
+		if( !picturesDisplayed ){// Displaying the pictures
 		
 			var messageTransition = '<p id="levelReached">Go to Level '+level+' >>> Press Enter</p>';
 			if(gameOn === 0){// If the Game is Over
@@ -340,10 +340,10 @@ cn.levelTransitionAnimation = function() {
 			
 			$('#transitionLevel').html(messageTransition+greenPictureDisplay+normalPictureDisplay);
 			
-			picturesDisplayed = 1;
+			picturesDisplayed = true;
 		}
 		
-		if(picturesDisplayed === 1){// blink effect on the pictures
+		if(picturesDisplayed){// blink effect on the pictures
 			$("#greenPicture").fadeOut(120).delay(140).fadeIn(120).delay(140);// hiding and showing green picture for a blinky effect ( I use fadeX(y) because delay dosen't works with show() and hide())
 			
 		}
