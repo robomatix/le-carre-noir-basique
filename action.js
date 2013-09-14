@@ -10,6 +10,7 @@ Licence GNU GPL
 
 //GLOBALS
 SQUARE_SIZE = 50;
+HOW_MANY_SQUARES_IN_A_ROW = 10;
 JAUGE_STEP = 5;
 COLOR_BLACK = 'black';
 COLOR_GREEN = 'green';
@@ -73,7 +74,7 @@ var initialize = function() {
 	cn.displayScore();
 	ccng.append("<div id='container'>");
 	var x_player_random = Math.floor((Math.random() * 10))*SQUARE_SIZE; // random number between 0 and 9 and the * 40 to randomly determinate the position of the player at the begenning of the game
-	cn.addSquare("container", "player", {dim: SQUARE_SIZE, bgColor: COLOR_BLACK, y: 450, x: x_player_random});
+	cn.addSquare("container", "player", {dim: SQUARE_SIZE, bgColor: COLOR_BLACK, y: (HOW_MANY_SQUARES_IN_A_ROW*SQUARE_SIZE)-SQUARE_SIZE, x: x_player_random});
 	$("#player").css({'z-index': 100});
 	cn.addSquare("player", "jauge", {dim: 0, bgColor: COLOR_GREEN, y: SQUARE_SIZE/2, x: SQUARE_SIZE/2});
 	

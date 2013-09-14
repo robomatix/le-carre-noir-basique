@@ -51,7 +51,7 @@ cn.addSquare = function(parentId, divId, options) {
  **/
 cn.addRowSquare = function() {
 	
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < HOW_MANY_SQUARES_IN_A_ROW; i++) {
         var x = i * SQUARE_SIZE;
         // This determinate black,green or neutral square
         var bgn_random = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
@@ -96,7 +96,7 @@ cn.moveRowSquare = function(turn) {
  * This function removes the line of squares below the player square
  **/
 cn.removeSquare = function(divId, y) {
-    if (y === 500) {
+    if (y === (HOW_MANY_SQUARES_IN_A_ROW*SQUARE_SIZE)) {
         $("#" + divId).remove();
     }
 
@@ -106,7 +106,7 @@ cn.removeSquare = function(divId, y) {
  **/
 cn.testCollisionPlayer = function(divId, y) {
 	
-    if (y === 450) {
+    if (y === (HOW_MANY_SQUARES_IN_A_ROW*SQUARE_SIZE)-SQUARE_SIZE) {
         xPosSquare = cn.x(divId);
         xPosPlayer = cn.x('player');
         if (xPosSquare === xPosPlayer) {
@@ -153,7 +153,7 @@ cn.squareCollisionPlayer = function(typeSquare) {
     } else { // Game continues... Next turn
             
         // Calculing the score
-        score = (ns*fns)-(gs*fns)+(bs*fns)+turn-10;
+        score = (ns*fns)-(gs*fns)+(bs*fns)+turn-HOW_MANY_SQUARES_IN_A_ROW;
         
         // Handling the best stats and score
         if(level > bestLevel){
@@ -212,7 +212,7 @@ cn.y = function(divId, position) {
  * This function moves the player square
  **/
 cn.movePlayerSquare = function(newPos) {
-    if (newPos > -SQUARE_SIZE && newPos < 500) {// Test to avoid to get out of the game container
+    if (newPos > -SQUARE_SIZE && newPos < (HOW_MANY_SQUARES_IN_A_ROW*SQUARE_SIZE)) {// Test to avoid to get out of the game container
         if (newPos === 0) {// Hack to avoid 0 that doesn't seem to work...
             newPos = "zero";
         }
