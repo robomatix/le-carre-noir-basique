@@ -10,6 +10,7 @@ Licence GNU GPL
 
 //GLOBALS
 SQUARE_SIZE = 50;
+JAUGE_STEP = 5;
 COLOR_BLACK = 'black';
 COLOR_GREEN = 'green';
 COLOR_NEUTRAL = 'white';
@@ -93,7 +94,7 @@ var initialize = function() {
 			if(e.keyCode === 13){// Enter	
 				$("#transitionLevel").hide();
 				window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition blinked
-				cn.addSquare("player", "jauge", {dim: 0, bgColor: COLOR_GREEN, y: 25, x: 25});
+				cn.addSquare("player", "jauge", {dim: 0, bgColor: COLOR_GREEN, y: SQUARE_SIZE/2, x: SQUARE_SIZE/2});
 				levelOn = false;
 			}
 		}
