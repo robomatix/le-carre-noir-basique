@@ -96,6 +96,13 @@ html{
 {
 	color: green;
 }
+#containerCarreNoirGame #transitionLevel.red{
+	background-color: red;
+}
+#containerCarreNoirGame #transitionLevel.red #exclamation
+{
+	color: yellow;
+}
 #containerCarreNoirGame #transitionLevel #levelReached{
 	position: absolute;
 	top: 360px;

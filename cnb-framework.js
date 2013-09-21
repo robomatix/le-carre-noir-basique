@@ -299,12 +299,19 @@ cn.levelTransitionAnimation = function() {
 	if( !greenPictureLoaded || !normalPictureLoaded || timesExcamationBlinked < 3){
 		
 		timesExcamationBlinked++;
-		
-		if($('#transitionLevel').hasClass('black') === true){
-			$("#transitionLevel").removeClass("black");
+		if( gameOn ) {
+			if($('#transitionLevel').hasClass('black') === true){
+				$("#transitionLevel").removeClass("black");
+			}else{
+				$("#transitionLevel").addClass("black");
+			}
 		}else{
-			$("#transitionLevel").addClass("black");
-		}
+				if($('#transitionLevel').hasClass('red') === true){
+				$("#transitionLevel").removeClass("red");
+			}else{
+				$("#transitionLevel").addClass("red");
+			}
+		}		
 		
 	}else{// The pictures are loaded and the text blinked twice at least
 		
