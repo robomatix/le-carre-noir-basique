@@ -325,6 +325,8 @@ cn.levelTransitionAnimation = function() {
 			
 				messageTransition = '<p id="levelReached">GAME OVER</p><p id="restart">To ReStart >> Click on the picture >> Press Enter</p>';
 				
+				$("#infoFocus").html(msgInfoFocusGameOff);
+				
 				$("#shareScoreButtons").css({ "top" : "510" }); // Share Score
 				$("#scoreToShare").html(score); // Score displayed near Share it on the index !!!
 				
@@ -332,12 +334,12 @@ cn.levelTransitionAnimation = function() {
 				ADDRESS_PAGE = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
 				// Tumblr stuff ( needs some js stuff on the index page before </body> and a button )				
 				tumblr_photo_source = ADDRESS_PAGE+'images/levelend/'+picture_random+'n.jpg';
-				tumblr_photo_caption = score + ' is my score on Le Carré Noir Basique V 1.0.0.Beta3 ! Click on the picture to play to this fucking game !!!';					
+				tumblr_photo_caption = score + ' is my score on Le Carré Noir Basique V 1.0.0.Beta4 ! Click on the picture to play to this fucking game !!!';					
 				tumblrButtonHref = 'http://www.tumblr.com/share/photo?source=' + encodeURIComponent(tumblr_photo_source) + '&caption=' + encodeURIComponent(tumblr_photo_caption) + '&click_thru=' + encodeURIComponent(ADDRESS_PAGE);	
 				$("a.tumblrButton").prop("href", tumblrButtonHref);
 				
 				// Twitter stuff ( needs some js stuff below below and a button on the index page )
-				$(".twitter-share-button").attr("data-text" , score + ' is my score on Le Carré Noir Basique V.1.0.0.Beta3 ! ');
+				$(".twitter-share-button").attr("data-text" , score + ' is my score on Le Carré Noir Basique V.1.0.0.Beta4 ! ');
 				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 				
 			}

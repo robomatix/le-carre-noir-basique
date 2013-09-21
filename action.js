@@ -8,6 +8,10 @@ V.1.0.0 Beta3 released on the 14 September 2013
 Licence GNU GPL
 * */
 
+// Message page
+var gameTitle = 'Le Carré Noir Basique V.1.0.0 Beta4'
+var msgInfoFocusGameOff = 'Click on the square to get the focus if nothing happens when pressing "Enter"';
+var msgInfoFocusGameOn = 'Click on the square to get the focus if nothing happens when pressing "<-" or "->"';
 
 //GLOBALS
 SQUARE_SIZE = 50;
@@ -20,11 +24,16 @@ LEVEL_2_END = 80;
 LEVEL_3_END = 180;
 ADDRESS_PAGE = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
 
+
 	
 $(function() {
 	
-	//Hide some stuff...
+	// Hide some stuff...
 	$("#transitionLevel").hide();
+	
+	// Display some infos
+	$("#gameTitle").html(gameTitle);
+	$("#infoFocus").html(msgInfoFocusGameOff);
 
 	// Initializing game state variables...
 	gameOn = false;
@@ -82,6 +91,7 @@ var initialize = function() {
 	cn.addSquare("container", "player", {dim: SQUARE_SIZE, bgColor: COLOR_BLACK, y: (HOW_MANY_SQUARES_IN_A_ROW*SQUARE_SIZE)-SQUARE_SIZE, x: x_player_random});
 	$("#player").css({'z-index': 100});
 	cn.addSquare("player", "jauge", {dim: 0, bgColor: COLOR_GREEN, y: SQUARE_SIZE/2, x: SQUARE_SIZE/2});
+	$("#infoFocus").html(msgInfoFocusGameOn);
 	
 };
 
