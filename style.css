@@ -71,6 +71,7 @@ html{
 }
 #containerCarreNoirGame #container{
 	background-color: yellow;
+	display:none;
 }
 
 /* STYLING THE LEVEL TRANSITION */

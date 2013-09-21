@@ -76,7 +76,8 @@ var initialize = function() {
 		window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition of the end when the Game is Over  
 	}
 	cn.displayScore();
-	ccng.append("<div id='container'>");
+	$("#container").empty(); // To remove the squares of a previous game....
+	$("#container").show();
 	var x_player_random = Math.floor((Math.random() * 10))*SQUARE_SIZE; // random number between 0 and 9 and the * 40 to randomly determinate the position of the player at the begenning of the game
 	cn.addSquare("container", "player", {dim: SQUARE_SIZE, bgColor: COLOR_BLACK, y: (HOW_MANY_SQUARES_IN_A_ROW*SQUARE_SIZE)-SQUARE_SIZE, x: x_player_random});
 	$("#player").css({'z-index': 100});

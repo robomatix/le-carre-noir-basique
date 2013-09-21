@@ -97,7 +97,7 @@ cn.moveRowSquare = function(turn) {
  * This function removes the line of squares below the player square
  **/
 cn.removeSquare = function(divId, y) {
-    if (y === (HOW_MANY_SQUARES_IN_A_ROW*SQUARE_SIZE)) {
+    if (y === (HOW_MANY_SQUARES_IN_A_ROW*SQUARE_SIZE) ) {
         $("#" + divId).remove();
     }
 
@@ -147,8 +147,9 @@ cn.squareCollisionPlayer = function(typeSquare) {
     /* Game ends or Continues ? */
     if (dim === SQUARE_SIZE) {// Game ends when the dim of the jauge checked is the same size as the player square
     
-		$("#container").remove();
-        gameOn = false;
+	    gameOn = false;
+
+        
         cn.levelTransition('end');// Calls the transition level for the end when the Game is Over
         
     } else { // Game continues... Next turn
@@ -229,7 +230,7 @@ cn.movePlayerSquare = function(newPos) {
  * This function Checks and determines levels changes
  **/
 cn.level = function(turn){
-	
+		
 	switch (turn) {// TODO LATER : Put the parameters of newLevel in a config file
 		case LEVEL_2_END:// Level 2
 			cn.newLevel(2,7,6,10,9);
@@ -254,13 +255,14 @@ cn.newLevel = function(levelP,greenfactorP,whiteFactor1P,whiteFactor2P,blackFact
 	
 	cn.levelTransition(level);// Calls the transition level
 
-	levelOn = true;// The game is now displaying a level transition
 	
 };
 /**
  * This function display the level transition
  **/
 cn.levelTransition = function(level) {
+	
+	levelOn = true;// The game is now displaying a level transition
 	
 	$("#transitionLevel").html('<p id="exclamation">!</p>').show();
 	myIntervalTransitionLevel = window.setInterval(cn.levelTransitionAnimation,520);// Stopped in action.js if (levelOn)
@@ -311,6 +313,9 @@ cn.levelTransitionAnimation = function() {
 			var messageTransition = '<p id="levelReached">Go to Level '+level+' >>> Press Enter</p>';
 			if( !gameOn) {// If the Game is Over
 			
+				levelOn = false; // No next level
+				
+			
 				messageTransition = '<p id="levelReached">GAME OVER</p><p id="restart">To ReStart >> Click on the picture >> Press Enter</p>';
 				
 				$("#shareScoreButtons").css({ "top" : "510" }); // Share Score
@@ -336,6 +341,7 @@ cn.levelTransitionAnimation = function() {
 		}
 		
 		if(picturesDisplayed){// blink effect on the pictures
+		
 			$("#greenPicture").fadeOut(120).delay(140).fadeIn(120).delay(140);// hiding and showing green picture for a blinky effect ( I use fadeX(y) because delay dosen't works with show() and hide())
 			
 		}
