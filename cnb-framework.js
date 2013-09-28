@@ -5,6 +5,7 @@ Started saturday 06 July 2013 by Robomatix Rebirth
 V 1.0.0 Beta released on the 03 August 2013
 V 1.0.0 Beta2 released on the 08 August 2013
 V.1.0.0 Beta3 released on the 14 September 2013
+V.1.0.0 released on the 1 October 2013
 Licence GNU GPL
 * */
 cn = {};
@@ -296,17 +297,17 @@ cn.levelTransition = function(level) {
 cn.levelTransitionAnimation = function() {	
 
 	// Display some stuff while loading the pictures
-	if( !greenPictureLoaded || !normalPictureLoaded || timesExcamationBlinked < 3){
+	if( !greenPictureLoaded || !normalPictureLoaded || timesExcamationBlinked < 4){
 		
 		timesExcamationBlinked++;
 		if( gameOn ) {
-			if($('#transitionLevel').hasClass('black') === true){
-				$("#transitionLevel").removeClass("black");
+			if($('#transitionLevel').hasClass('green') === true){
+					$("#transitionLevel").removeClass("green");
 			}else{
-				$("#transitionLevel").addClass("black");
+					$("#transitionLevel").addClass("green");
 			}
 		}else{
-				if($('#transitionLevel').hasClass('red') === true){
+			if($('#transitionLevel').hasClass('red') === true){
 				$("#transitionLevel").removeClass("red");
 			}else{
 				$("#transitionLevel").addClass("red");

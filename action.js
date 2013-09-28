@@ -5,11 +5,12 @@ Started saturday 06 July 2013 by Robomatix Rebirth
 V 1.0.0 Beta released on the 03 August 2013
 V 1.0.0 Beta2 released on the 08 August 2013
 V.1.0.0 Beta3 released on the 14 September 2013
+V.1.0.0 released on the 1 October 2013
 Licence GNU GPL
 * */
 
 // Message page
-var gameTitle = 'Le Carré Noir Basique V.1.0.0 Beta4'
+var gameTitle = 'Le Carré Noir Basique V.1.0.0'
 var msgInfoFocusGameOff = 'Click on the square to get the focus if nothing happens when pressing "Enter"';
 var msgInfoFocusGameOn = 'Click on the square to get the focus if nothing happens when pressing "<-" or "->"';
 
@@ -20,9 +21,9 @@ JAUGE_STEP = 5;
 COLOR_BLACK = 'black';
 COLOR_GREEN = 'green';
 COLOR_NEUTRAL = 'white';
-LEVEL_2_END = 80;
-LEVEL_3_END = 180;
-ADDRESS_PAGE = 'http://le-carre-noir.net/lcnb-v-1-0-0-beta/';
+LEVEL_2_END = 88;
+LEVEL_3_END = 166;
+ADDRESS_PAGE = 'http://le-carre-noir.net/le-carre-noir-basique-v-1-0-0/';
 
 
 	
@@ -79,7 +80,7 @@ var initialize = function() {
 	var scoreTop=ccngPosition.top+60;// Compensate the border and the margin
 	var scoreLeft=ccngPosition.left+540;// Compensate the border and the width + space
 
-	$("#transitionLevel").hide(); // Does it makes an error the firt time ?
+	$("#transitionLevel").removeClass("red").removeClass("green").hide(); // To avoid random bug link to the class green or red left before during the game // Does it makes an error the firt time ?
 	$("#shareScoreButtons").css({ "top" : "-50000000000px" });
 	if (typeof (myIntervalTransitionLevel) != 'undefined'){ 
 		window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition of the end when the Game is Over  
@@ -108,7 +109,7 @@ var initialize = function() {
 		
 		if (levelOn) {// The game is displaying a level transition
 			if(e.keyCode === 13){// Enter	
-				$("#transitionLevel").hide();
+				$("#transitionLevel").removeClass("red").removeClass("green").hide();// To avoid random bug link to the class green or red left before during the game
 				window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition blinked
 				cn.addSquare("player", "jauge", {dim: 0, bgColor: COLOR_GREEN, y: SQUARE_SIZE/2, x: SQUARE_SIZE/2});
 				levelOn = false;
