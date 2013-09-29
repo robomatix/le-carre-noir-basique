@@ -21,8 +21,9 @@ JAUGE_STEP = 5;
 COLOR_BLACK = 'black';
 COLOR_GREEN = 'green';
 COLOR_NEUTRAL = 'white';
-LEVEL_2_END = 88;
-LEVEL_3_END = 166;
+LEVEL_2_END = 10; //88;
+LEVEL_3_END = 20; //166;
+LEVEL_4_END = 30; //246;
 ADDRESS_PAGE = 'http://le-carre-noir.net/le-carre-noir-basique-v-1-0-0/';
 
 
@@ -69,10 +70,7 @@ var initialize = function() {
 	score = 0;
 	
 	// Initializing the factors for the difficulty of the initial level ( used in cn.addRowSquare )
-	greenfactor = 5;
-	whiteFactor1 = 4;
-	whiteFactor2 = 8;
-	blackFactor = 7;
+	cn.newLevel(1,4,7);
 	
 	// Doing some html and CSS stuff
 	var ccng = $("#containerCarreNoirGame");

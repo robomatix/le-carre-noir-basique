@@ -57,11 +57,11 @@ cn.addRowSquare = function() {
         var x = i * SQUARE_SIZE;
         // This determinate black,green or neutral square
         var bgn_random = Math.floor((Math.random() * 10) + 1); // random number between 1 and 10
-        if (bgn_random > 0 && bgn_random < greenfactor) {// if random number > 7 -> black square otherwise green or neutral (white)
+        if (bgn_random > 0 && bgn_random <= greenFactor) {// black square or green or neutral (white)
             bgn = COLOR_GREEN;
-        } else if (bgn_random > whiteFactor1 && bgn_random < whiteFactor2) {
+        } else if (bgn_random > greenFactor && bgn_random <= whiteFactor) {
             bgn = COLOR_NEUTRAL;
-        } else if (bgn_random > blackFactor) {
+        } else {
             bgn = COLOR_BLACK;
         }
         cn.addSquare("container", "square-" + turn + "-" + i, {dim: SQUARE_SIZE, bgColor: bgn, y: 0, x: x});
@@ -234,23 +234,24 @@ cn.level = function(turn){
 		
 	switch (turn) {// TODO LATER : Put the parameters of newLevel in a config file
 		case LEVEL_2_END:// Level 2
-			cn.newLevel(2,7,6,10,9);
+			cn.newLevel(2,6,8);
 		break;
 		case LEVEL_3_END:// Level 3
-			cn.newLevel(3,8,7,10,9);
+			cn.newLevel(3,7,9);
+		break;
+		case LEVEL_4_END:// Level 4
+			 cn.newLevel(4,8,9);
 		break;
 	}
 };
 /**
  * This function sets the parameters of a level
  **/
-cn.newLevel = function(levelP,greenfactorP,whiteFactor1P,whiteFactor2P,blackFactorP) {
+cn.newLevel = function(levelP,greenFactorP,whiteFactorP) {
 	
 			level = levelP;
-			greenfactor = greenfactorP;
-			whiteFactor1 = whiteFactor1P;
-			whiteFactor2 = whiteFactor2P;
-			blackFactor = blackFactorP;
+			greenFactor = greenFactorP;
+			whiteFactor = whiteFactorP;
 		
 	$("#jauge").remove();// Jauge is remove before being putting it back with his new datas in action.js...
 	
