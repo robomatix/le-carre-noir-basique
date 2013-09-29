@@ -21,9 +21,9 @@ JAUGE_STEP = 5;
 COLOR_BLACK = 'black';
 COLOR_GREEN = 'green';
 COLOR_NEUTRAL = 'white';
-LEVEL_2_END = 10; //88;
-LEVEL_3_END = 20; //166;
-LEVEL_4_END = 30; //246;
+LEVEL_2_END = 88;
+LEVEL_3_END = 166;
+LEVEL_4_END = 246;
 ADDRESS_PAGE = 'http://le-carre-noir.net/le-carre-noir-basique-v-1-0-0/';
 
 
