@@ -40,6 +40,7 @@ $(function() {
 	// Initializing game state variables...
 	gameOn = false;
 	levelOn = false;
+	picturesDisplayed = false;
 	
 	
 	// Initializing the stats and score stuffs
@@ -88,6 +89,7 @@ var initialize = function() {
 	$("#container").show();
 	var x_player_random = Math.floor((Math.random() * 10))*SQUARE_SIZE; // random number between 0 and 9 and the * 40 to randomly determinate the position of the player at the begenning of the game
 	cn.addSquare("container", "player", {dim: SQUARE_SIZE, bgColor: COLOR_BLACK, y: (HOW_MANY_SQUARES_IN_A_ROW*SQUARE_SIZE)-SQUARE_SIZE, x: x_player_random});
+	cn.addSquare("player", "jauge", {dim: 0, bgColor: COLOR_GREEN, y: SQUARE_SIZE/2, x: SQUARE_SIZE/2});
 	$("#player").css({'z-index': 100});
 	$("#infoFocus").html(msgInfoFocusGameOn);
 	
@@ -95,6 +97,7 @@ var initialize = function() {
 
 // Do differents actions depending on the game statut when pressing some key on the keyboard
 	$(document).keydown(function(e) {
+		
 					
 		if (!gameOn && !levelOn) {// The game hasn't been started
 		
@@ -104,12 +107,12 @@ var initialize = function() {
 				 
 		}
 		
-		if (levelOn) {// The game is displaying a level transition
+		if (picturesDisplayed) {// The game is displaying a level transition, pictures being displayed
 			if(e.keyCode === 13){// Enter	
 				$("#transitionLevel").removeClass("red").removeClass("green").hide();// To avoid random bug link to the class green or red left before during the game
-				window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition blinked
-				cn.addSquare("player", "jauge", {dim: 0, bgColor: COLOR_GREEN, y: SQUARE_SIZE/2, x: SQUARE_SIZE/2});
+				window.clearInterval(myIntervalTransitionLevel);// To stop the set Interval wich makes the transition blinked				
 				levelOn = false;
+				picturesDisplayed = false;
 			}
 		}
 		
